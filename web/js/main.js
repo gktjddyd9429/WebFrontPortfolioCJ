@@ -403,6 +403,11 @@ function buildProjectCard(proj, idx) {
             <span>${proj.achievement}</span>
           </div>` : ''}
         <div class="card-tags">${tags}</div>
+        <div class="card-date font-code">
+          <span class="card-date-icon">📅</span>
+          <span class="card-date-label">만든 날짜:</span>
+          <span class="card-date-val">${proj.createdDate || proj.period || proj.periodShort || ''}</span>
+        </div>
         <div class="card-footer">
           <div class="card-links" onclick="event.stopPropagation()">
             ${hasGithub ? `<a href="${proj.links.github}" target="_blank" class="btn btn-ghost btn-sm">GitHub</a>` : ''}

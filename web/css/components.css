@@ -314,7 +314,32 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--nexon-text-muted);
+  font-family: var(--font-code);
   margin-bottom: var(--space-4);
+}
+
+.card-date-icon {
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.card-date-label {
+  color: var(--nexon-text-secondary);
+  font-weight: 500;
+}
+
+.card-date-val {
+  color: var(--nexon-text-primary);
+  font-weight: 600;
 }
 
 .card-footer {

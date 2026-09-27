@@ -1,9 +1,9 @@
 // CJ_FIT_TAGS - CJ Blossom Value Tag System
 const CJ_FIT_TAGS = {
   convenience: { label: 'CONVENIENCE', kr: '편리 / 시스템', color: '#006ECD', bgColor: '#EDF5FC', class: 'convenience', desc: '초격차 최적화와 안정적인 시스템 엔지니어링' },
-  joy:         { label: 'JOY',         kr: '즐거움 / 미디어', color: '#B86F00', bgColor: '#FFF6EB', class: 'joy',         desc: '몰입감 있는 인터랙티브 경험과 미디어 기술' },
-  health:      { label: 'HEALTH',      kr: '건강 / AI라이프', color: '#EF151E', bgColor: '#FFEBEC', class: 'health',      desc: '사용자의 일상을 풍요롭게 하는 AI 솔루션' },
-  onlyone:     { label: 'ONLYONE',     kr: '최초 / 차별화',   color: '#7928CA', bgColor: '#F7EDFF', class: 'onlyone',     desc: '남다른 기술적 집념과 원천 구현 역량' }
+  joy: { label: 'JOY', kr: '즐거움 / 미디어', color: '#B86F00', bgColor: '#FFF6EB', class: 'joy', desc: '몰입감 있는 인터랙티브 경험과 미디어 기술' },
+  health: { label: 'HEALTH', kr: '건강 / AI라이프', color: '#EF151E', bgColor: '#FFEBEC', class: 'health', desc: '사용자의 일상을 풍요롭게 하는 AI 솔루션' },
+  onlyone: { label: 'ONLYONE', kr: '최초 / 차별화', color: '#7928CA', bgColor: '#F7EDFF', class: 'onlyone', desc: '남다른 기술적 집념과 원천 구현 역량' }
 };
 
 /**
@@ -30,12 +30,13 @@ const PROJECTS_DATA = [
     team: '3인 팀 (클라이언트 1[본인], 기획 1, 3D 모델링 1)',
     role: '메인 클라이언트 프로그래머 (C# 전체 VR 로직 설계)',
     tags: ['Unity', 'C#', 'URP', 'VR', 'HLSL', 'Meta Quest', 'VR Optimization'],
+    createdDate: '2024.06.01 ~ 2025.05.24',
     cjFit: ['convenience', 'joy'],
     values: ['convenience', 'joy'],
     summary: '치매에 걸린 노화가의 시점에서, VR 세계에서 붓을 이용해 기억을 그려 나가는 시뮬레이션 프로젝트. 스토리가 진행될수록 그려진 기억이 흐려지고 왜곡되어 가는 과정을 체험합니다.',
     achievement: 'VR HMD 90fps 실시간 성능 방어 | 오픈소스 URP 렌더 패스 코드 분석·수정',
     media: {
-      thumbnail:   'assets/images/projects/mute-brush/mb_hero_thumb.jpg',
+      thumbnail: 'assets/images/projects/mute-brush/mb_hero_thumb.jpg',
       screenshots: [
         'assets/images/projects/mute-brush/mb_texture_before.jpg',
         'assets/images/projects/mute-brush/mb_texture_after.jpg',
@@ -45,9 +46,9 @@ const PROJECTS_DATA = [
       videoUrl: 'https://www.youtube-nocookie.com/embed/njvaomx2ybs',
     },
     links: {
-      github:  'https://github.com/gktjddyd/The-Mute-Brush_',
+      github: 'https://github.com/gktjddyd/The-Mute-Brush_',
       youtube: 'https://www.youtube.com/watch?v=njvaomx2ybs',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: '플레이어는 붓으로 과거의 단편들을 복원하며 기억과 감정을 되살리지만, 스토리가 진행될수록 치매 증상이 심해져 그려진 기억이 흐려지고 왜곡되어 가는 과정을 체험합니다. 끝을 모르는 기억의 상실 속에서, 그래도 붓을 들어 마지막 기억을 그려보는 이야기.',
@@ -169,17 +170,17 @@ const PROJECTS_DATA = [
     ],
     troubleshooting: [
       {
-        issue:    'VR Multi-pass 렌더링 환경에서 Render Texture 사용 시 시선 불일치로 극심한 멀미 유발',
+        issue: 'VR Multi-pass 렌더링 환경에서 Render Texture 사용 시 시선 불일치로 극심한 멀미 유발',
         analysis: 'VR의 좌안/우안 각각 다른 뷰포트를 렌더링하는 Multi-pass 구조에서, Render Texture가 단일 뷰포트 기준으로 갱신되어 눈과 화면이 어긋나는 현상 확인',
         solution: 'Stencil Buffer 마스킹 기술로 전환. 문 안쪽 Quad에 Stencil ID 부여 후 해당 픽셀에만 포탈 맵을 렌더링. 비가시 오브젝트 컬링으로 부하 최소화',
-        result:   '위화감 없는 VR 공간 전환 달성. 멀미 완전 해결',
+        result: '위화감 없는 VR 공간 전환 달성. 멀미 완전 해결',
         valueTag: 'challenge',
       },
       {
-        issue:    'Kino Glitch Post-Processing 적용 시 VR HMD에서 극심한 프레임 드랍 및 멀미 재발',
+        issue: 'Kino Glitch Post-Processing 적용 시 VR HMD에서 극심한 프레임 드랍 및 멀미 재발',
         analysis: '오픈소스 Kino Glitch의 URP Render Pass가 VR 환경의 고해상도 더블 렌더링에 맞게 최적화되지 않아 GPU 과부하 발생 확인',
         solution: 'URP Render Pass 코드를 직접 수정. downsampleFactor를 활용한 렌더 타깃 다운샘플링 및 프레임 스킵 기법 추가 구현',
-        result:   '글리치 연출 적용 시에도 72/90fps 안정 방어. VR 멀미 현상 완벽 제거',
+        result: '글리치 연출 적용 시에도 72/90fps 안정 방어. VR 멀미 현상 완벽 제거',
         valueTag: 'passion',
       },
     ],
@@ -203,12 +204,13 @@ const PROJECTS_DATA = [
     team: '3인 팀 (프론트엔드 전담, DTW 알고리즘, AI 프롬프트 설계)',
     role: '안드로이드 프론트엔드 + DTW 알고리즘 구현',
     tags: ['Android', 'FastAPI', 'OpenCV', 'DTW', 'AI', 'Docker'],
+    createdDate: '2024 (캡스톤디자인)',
     cjFit: ['health', 'convenience', 'onlyone'],
     values: ['health', 'convenience', 'onlyone'],
     summary: '청각 장애인의 원활한 소통을 돕는 AI 기반 입모양(구화) 분석 및 발음 교정 학습 애플리케이션. 숭실 캡스톤디자인 공학 경진대회 총장상(동상) 수상.',
     achievement: 'Android + FastAPI AI 파이프라인 완성 | 캡스톤 총장상(동상) | DTW 97.8% 정밀도',
     media: {
-      thumbnail:   'assets/images/projects/eorum/eorum_mouth.jpg',
+      thumbnail: 'assets/images/projects/eorum/eorum_mouth.jpg',
       screenshots: [
         'assets/images/projects/eorum/eorum_mouth.jpg',
         'assets/images/projects/eorum/eorum_score.jpg',
@@ -217,9 +219,9 @@ const PROJECTS_DATA = [
       videoUrl: '',
     },
     links: {
-      github:  'https://github.com/naboyeong/Eorum',
+      github: 'https://github.com/naboyeong/Eorum',
       youtube: '',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: '청각 장애인이 입모양(구화)으로 소통을 학습할 수 있도록 AI가 발음 유사도를 실시간으로 분석하고 피드백을 제공하는 앱.',
@@ -264,12 +266,13 @@ const PROJECTS_DATA = [
     team: '1인 개발',
     role: '기획 + 클라이언트 개발 전담',
     tags: ['Unity', 'C#', 'Horror', 'Endless Hallway'],
+    createdDate: '2024.08',
     cjFit: ['joy', 'convenience'],
     values: ['joy', 'convenience'],
     summary: '낯선 저택에서 깨어난 주인공이 집안의 물품들과 상호작용하며 순차적으로 해금되는 기이한 이상 현상을 극복하고 탈출하는 1인칭 공포 인터랙션 시뮬레이션.',
     achievement: '텔레포트 기반 무한 루프 시스템 설계 | Raycast 트리거 누락 트러블슈팅 해결',
     media: {
-      thumbnail:   'assets/images/projects/carrot-mansion/cm_thumb.jpg',
+      thumbnail: 'assets/images/projects/carrot-mansion/cm_thumb.jpg',
       screenshots: [
         'assets/images/projects/carrot-mansion/cm_monsters.jpg',
         'assets/images/projects/carrot-mansion/cm_endless_hallway.jpg',
@@ -278,9 +281,9 @@ const PROJECTS_DATA = [
       videoUrl: 'https://www.youtube-nocookie.com/embed/C_BWhqFXEhw',
     },
     links: {
-      github:  '',
+      github: '',
       youtube: 'https://youtu.be/C_BWhqFXEhw',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: '낯선 저택에서 깨어난 주인공이 물품들과 상호작용하며 기이한 현상을 해결하고 탈출을 시도하는 1인칭 공포 인터랙션 시뮬레이션.',
@@ -306,10 +309,10 @@ const PROJECTS_DATA = [
     ],
     troubleshooting: [
       {
-        issue:    'currentIndex 루프 상태와 연동한 순차적 공포 이벤트 발동 시 단일 Raycast 프레임 누락 현상',
+        issue: 'currentIndex 루프 상태와 연동한 순차적 공포 이벤트 발동 시 단일 Raycast 프레임 누락 현상',
         analysis: '빠른 이동 속도에서 단일 Raycast가 트리거 영역을 건너뛰는 프레임 단위 누락 발생',
         solution: '감지 영역 보강: 다중 Raycast 배치 및 BoxCollider 트리거 병행 설계로 감지 안정성 확보',
-        result:   '루프 기반 공포 이벤트 순차 발동 100% 신뢰성 달성',
+        result: '루프 기반 공포 이벤트 순차 발동 100% 신뢰성 달성',
         valueTag: 'challenge',
       },
     ],
@@ -333,12 +336,13 @@ const PROJECTS_DATA = [
     team: '1인 개발',
     role: '렌더링 파이프라인 및 카메라 시스템 전담',
     tags: ['C++', 'OpenGL', 'GLSL', '1인칭 카메라', 'FBO', 'Kernel Filter'],
+    createdDate: '2024.05',
     cjFit: ['onlyone', 'convenience'],
     values: ['onlyone', 'convenience'],
     summary: 'OpenGL을 기반으로 구축된 3D 스테이지에서 숨겨진 단서 카드를 찾아 비밀번호를 풀고 방을 탈출하는 3D 그래픽스 탐색 퍼즐 프로젝트.',
     achievement: '순수 C++/OpenGL FBO 포스트프로세싱 파이프라인 직접 구현',
     media: {
-      thumbnail:   'assets/images/projects/seek-card/sc_thumb.jpg',
+      thumbnail: 'assets/images/projects/seek-card/sc_thumb.jpg',
       screenshots: [
         'assets/images/projects/seek-card/sc_village.jpg',
         'assets/images/projects/seek-card/sc_camera_code.png',
@@ -348,9 +352,9 @@ const PROJECTS_DATA = [
       videoUrl: 'https://www.youtube-nocookie.com/embed/c1g3beWfdfM',
     },
     links: {
-      github:  'https://github.com/gktjddyd/Seek-the-card/tree/main/CodeCollection',
+      github: 'https://github.com/gktjddyd/Seek-the-card/tree/main/CodeCollection',
       youtube: 'https://youtu.be/c1g3beWfdfM',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: '순수 C++과 OpenGL로 1인칭 카메라와 FBO 포스트프로세싱 파이프라인을 직접 구현한 그래픽스 심화 프로젝트.',
@@ -402,13 +406,14 @@ const PROJECTS_DATA = [
     duration: '약 2주',
     team: '4인 팀 (하반신 파트, 텍스처, 카메라 전담)',
     role: '하반신 기하학 프리미티브 조립 + UV 텍스처 매핑 + 카메라 시스템',
-    tags: ['C++', 'OpenGL', 'GLUT', 'UV 매핑', '구면 좌표계'],
+    tags: ['C++', 'OpenGL', 'GLUT', 'UV 매핑'],
+    createdDate: '2024.04',
     cjFit: ['joy', 'onlyone'],
     values: ['joy', 'onlyone'],
     summary: '상용 3D 모델(FBX 등)을 전혀 사용하지 않고 순수 C++과 OpenGL 수학 프리미티브만을 조립하여 구현한 호머 심슨 3D 캐릭터 프로젝트.',
     achievement: '3D 에셋 없이 기하학 수학 프리미티브만으로 완전한 3D 캐릭터 완성',
     media: {
-      thumbnail:   'assets/images/projects/homer-simpson/homer_simpson_render.jpg',
+      thumbnail: 'assets/images/projects/homer-simpson/homer_simpson_render.jpg',
       screenshots: [
         'assets/images/projects/homer-simpson/homer_simpson_render.jpg',
         'assets/images/projects/homer-simpson/homer_pants_render.jpg',
@@ -416,9 +421,9 @@ const PROJECTS_DATA = [
       videoUrl: '',
     },
     links: {
-      github:  'https://github.com/Graphics-Project-Homor-Simpson/Graphics-Project/blob/main/new.cpp',
+      github: 'https://github.com/Graphics-Project-Homor-Simpson/Graphics-Project/blob/main/new.cpp',
       youtube: '',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: '3D 에셋 파일 없이 구(Sphere), 원통(Cylinder), 캡슐(Capsule) 등 기하학 프리미티브의 행렬 변환만으로 조립한 3D 캐릭터.',
@@ -470,12 +475,13 @@ const PROJECTS_DATA = [
     team: '1인 개발',
     role: '전체 파이프라인 설계 및 구현',
     tags: ['C++', 'OpenCV', 'DICOM', 'Otsu', 'Watershed', 'Medical Image'],
+    createdDate: '2024 (그래픽스 과제)',
     cjFit: ['health', 'onlyone'],
     values: ['health', 'onlyone'],
     summary: 'CT 촬영된 환자의 흉부 DICOM 파일을 OpenCV로 분석하여 폐 영역만 분할 및 시각화하는 파이프라인 구현.',
     achievement: 'C++ + OpenCV 로우레벨 의료 영상 분할 다단계 파이프라인 완성',
     media: {
-      thumbnail:   'assets/images/projects/dicom/dicom_artifact_reduction.png',
+      thumbnail: 'assets/images/projects/dicom/dicom_artifact_reduction.png',
       screenshots: [
         'assets/images/projects/dicom/dicom_pipeline.png',
         'assets/images/projects/dicom/dicom_mask_overlay.jpg',
@@ -484,9 +490,9 @@ const PROJECTS_DATA = [
       videoUrl: '',
     },
     links: {
-      github:  'https://github.com/gktjddyd/Dicom-Image-Segementation/blob/main/segmetation.cpp',
+      github: 'https://github.com/gktjddyd/Dicom-Image-Segementation/blob/main/segmetation.cpp',
       youtube: '',
-      notion:  '',
+      notion: '',
     },
     overview: {
       story: 'DICOM CT 데이터를 저수준에서 직접 다루며, 전처리부터 관심 영역 마스킹까지 전체 파이프라인을 C++과 OpenCV만으로 구현.',
@@ -513,18 +519,18 @@ const PROJECTS_DATA = [
 
 // 카테고리 맵
 const CATEGORIES = {
-  all:     '전체',
-  unity:   'Unity / C#',
-  opengl:  'OpenGL / C++',
-  other:   'AI · Android · CV',
+  all: '전체',
+  unity: 'Unity / C#',
+  opengl: 'OpenGL / C++',
+  other: 'AI · Android · CV',
 };
 
 // daouFit 태그 시스템
 const DAOU_FIT_TAGS = {
-  system:    { label: 'SYSTEM',    kr: '시스템',   color: '#2484C6', class: 'system',    desc: '안정적 시스템 설계 및 최적화' },
-  realtime:  { label: 'REALTIME',  kr: '실시간',   color: '#43D4E9', class: 'realtime',  desc: '실시간 처리 성능 민감도 경험' },
-  ai:        { label: 'AI',        kr: 'AI 개발',  color: '#5F24E4', class: 'ai',        desc: 'AI 서비스 파이프라인 구축' },
-  mobile:    { label: 'MOBILE',    kr: '모바일',   color: '#F8D306', class: 'mobile',    desc: 'Android/iOS 앱 개발 경험' },
+  system: { label: 'SYSTEM', kr: '시스템', color: '#2484C6', class: 'system', desc: '안정적 시스템 설계 및 최적화' },
+  realtime: { label: 'REALTIME', kr: '실시간', color: '#43D4E9', class: 'realtime', desc: '실시간 처리 성능 민감도 경험' },
+  ai: { label: 'AI', kr: 'AI 개발', color: '#5F24E4', class: 'ai', desc: 'AI 서비스 파이프라인 구축' },
+  mobile: { label: 'MOBILE', kr: '모바일', color: '#F8D306', class: 'mobile', desc: 'Android/iOS 앱 개발 경험' },
 };
 
 // 기술 스킬 데이터
@@ -534,13 +540,13 @@ const SKILLS_DATA = [
     icon: '⚙️',
     iconClass: 'blue',
     skills: [
-      { name: 'Java',           level: 72, sub: 'OOP, Android, SSAFY 학습 중' },
-      { name: 'C++ (Modern)',   level: 82, sub: 'STL, 포인터, 렌더링 파이프라인' },
-      { name: 'C',              level: 80, sub: '포인터, 메모리 관리, 시스템 프로그래밍' },
-      { name: 'SQL',            level: 75, sub: 'RDBMS, JOIN/서브쿼리, 트랜잭션' },
-      { name: 'Vue.js',         level: 72, sub: 'Vue 3, Composition API, Axios 연동' },
-      { name: 'C# (Unity)',     level: 88, sub: 'async/await, Event, Coroutine' },
-      { name: 'Python',         level: 68, sub: 'FastAPI, OpenCV, AI 파이프라인' },
+      { name: 'Java', level: 72, sub: 'OOP, Android, SSAFY 학습 중' },
+      { name: 'C++ (Modern)', level: 82, sub: 'STL, 포인터, 렌더링 파이프라인' },
+      { name: 'C', level: 80, sub: '포인터, 메모리 관리, 시스템 프로그래밍' },
+      { name: 'SQL', level: 75, sub: 'RDBMS, JOIN/서브쿼리, 트랜잭션' },
+      { name: 'Vue.js', level: 72, sub: 'Vue 3, Composition API, Axios 연동' },
+      { name: 'C# (Unity)', level: 88, sub: 'async/await, Event, Coroutine' },
+      { name: 'Python', level: 68, sub: 'FastAPI, OpenCV, AI 파이프라인' },
     ],
   },
   {
@@ -549,8 +555,8 @@ const SKILLS_DATA = [
     iconClass: 'cyan',
     skills: [
       { name: 'Android Studio', level: 70, sub: 'Activity, REST, AI 연동' },
-      { name: 'OpenGL / C++',   level: 78, sub: 'VAO/VBO, FBO, 1인칭 파이프라인' },
-      { name: 'Unity (URP)',    level: 90, sub: 'VR, Physics, 커스텀 렌더 패스' },
+      { name: 'OpenGL / C++', level: 78, sub: 'VAO/VBO, FBO, 1인칭 파이프라인' },
+      { name: 'Unity (URP)', level: 90, sub: 'VR, Physics, 커스텀 렌더 패스' },
     ],
   },
   {
@@ -558,9 +564,9 @@ const SKILLS_DATA = [
     icon: '🤖',
     iconClass: 'purple',
     skills: [
-      { name: 'OpenCV (C++)',   level: 74, sub: 'DICOM, Watershed, CLAHE' },
-      { name: 'DTW Algorithm',  level: 70, sub: '시계열 매칭, 구화 분석' },
-      { name: 'AI Tool 활용',   level: 85, sub: 'SSAFY AI 교육, 프롬프트 설계' },
+      { name: 'OpenCV (C++)', level: 74, sub: 'DICOM, Watershed, CLAHE' },
+      { name: 'DTW Algorithm', level: 70, sub: '시계열 매칭, 구화 분석' },
+      { name: 'AI Tool 활용', level: 85, sub: 'SSAFY AI 교육, 프롬프트 설계' },
     ],
   },
   {
@@ -570,7 +576,7 @@ const SKILLS_DATA = [
     skills: [
       { name: '자료구조·알고리즘', level: 75, sub: 'SSAFY + 컴퓨터학부 이수' },
       { name: '운영체제·네트워크', level: 65, sub: '컴퓨터학부 복수전공 이수' },
-      { name: 'Git 협업',         level: 82, sub: '브랜치 전략, 팀 협업 1년' },
+      { name: 'Git 협업', level: 82, sub: '브랜치 전략, 팀 협업 1년' },
     ],
   },
 ];
