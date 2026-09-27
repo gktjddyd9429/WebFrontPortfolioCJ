@@ -1,0 +1,173 @@
+/* ============================================
+   daou-tokens.css
+   ?�우기술 브랜???�자???�스??- CSS 변??�??�큰
+   ?�퍼?�스: daou.co.kr index.css ?�측 기반
+   ============================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ?�?�?� ?�우기술 ?�심 브랜??컬러 (daou.co.kr ?�측) ?�?�?� */
+  --daou-bg-dark:        #F0F4F8;  /* ?�?�??쿨그?�이/?�이보리 ?�합 배경 */
+  --daou-bg-surface:     #E2E8F0;  /* ?�피???�이??*/
+  --daou-bg-card:        #FFFFFF;  /* 카드 배경?� ?�백?�으�?배경�??�실??분리 */
+  --daou-bg-card-hover:  #FFFFFF;  /* 카드 ?�버??배경?� 그�?�??��??�되 그림?�로 ?��? */
+  --daou-bg-modal:       #FFFFFF;  /* 모달 배경 */
+  --daou-bg-section:     #E2E8F0;  /* 교차 ?�션 배경 */
+
+  /* ?�우기술 ?�그?�처 블루 (?�더 border, 버튼, CTA ?�측) */
+  --daou-blue:           #2484C6;  /* ?�그?�처 ?�우 블루 */
+  --daou-blue-dark:      #1272BA;  /* 버튼 hover/active ??블루 */
+  --daou-blue-light:     #2482C8;  /* 메뉴 hover ?�측 */
+  --daou-blue-glow:      rgba(36, 132, 198, 0.35);
+  --daou-blue-dim:       rgba(36, 132, 198, 0.12);
+
+  /* ?�우 보조 컬러 (?�우?�피?�·다?�싱??�애?�콘 ?�션 ?�측) */
+  --daou-cyan:           #43D4E9;  /* ?�우?�피??page4 배경 ?�측 */
+  --daou-cyan-glow:      rgba(67, 212, 233, 0.35);
+  --daou-cyan-dim:       rgba(67, 212, 233, 0.12);
+
+  --daou-purple:         #5F24E4;  /* ?�드�?page6 배경 ?�측 */
+  --daou-navy:           #2B2DE8;  /* ?�우?�크 page5 배경 ?�측 */
+  --daou-sky:            #B0D2FF;  /* ?�우?�크 ?�브?�스???�측 */
+
+  /* 금융 ?�마 ?�센??*/
+  --finance-gold:        #F8D306;  /* ?�우?�크 ?�션 강조 골드 ?�측 */
+  --finance-gold-glow:   rgba(248, 211, 6, 0.35);
+  --finance-gold-dim:    rgba(248, 211, 6, 0.12);
+  --finance-green:       #00C96B;  /* 매수 ?�호 계열 (HTS ?�상) */
+  --finance-green-glow:  rgba(0, 201, 107, 0.35);
+  --finance-green-dim:   rgba(0, 201, 107, 0.12);
+  --finance-red:         #FF3B3B;  /* 매도 ?�호 계열 (HTS ?�상) */
+  --finance-chart:       #43D4E9;  /* 차트 ?�인???�안 */
+
+  /* 경계??*/
+  --daou-border:         rgba(0, 0, 0, 0.08); /* 카드/?�션 구분??조금 ??진하�?*/
+  --daou-border-light:   rgba(36, 132, 198, 0.25);
+  --daou-border-solid:   #2484C6;  /* ?�더 ?�단 2px 보더 ?�측 */
+  --daou-border-subtle:  rgba(0, 0, 0, 0.04);
+
+  /* ?�스???�레??(?�우 ?�이???�측) */
+  --daou-text-primary:   #111827;  /* 가??진한 검?�??(?�목 ?? */
+  --daou-text-secondary: #374151;  /* ?�크 그레??(본문) */
+  --daou-text-muted:     #6B7280;
+  --daou-text-dim:       #9CA3AF;
+  --daou-text-blue:      #2484C6;
+  --daou-text-cyan:      #0C6296;  /* ??바탕??명확??보이?????�우 블루 */
+  --daou-text-gold:      #D97706;  /* ??바탕?�서 ??보이??진한 골드/?�렌지 */
+
+  /* 그라?�언??*/
+  --grad-daou-primary:   linear-gradient(90deg, #0C6296 0%, #2484C6 50%, #43D4E9 100%);
+  --grad-daou-finance:   linear-gradient(135deg, #1272BA 0%, #2B2DE8 100%);
+  --grad-daou-dark:      linear-gradient(135deg, #F0F4F8 0%, #E2E8F0 100%);
+  --grad-daou-card:      linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+  --grad-daou-hero:      linear-gradient(135deg, rgba(36,132,198,0.08) 0%, transparent 80%);
+
+  /* ?�?�?� daouFit 가�?배�? 컬러 ?�?�?� */
+  --fit-system-color:    #2484C6;
+  --fit-realtime-color:  #43D4E9;
+  --fit-ai-color:        #5F24E4;
+  --fit-mobile-color:    #F8D306;
+  --fit-algorithm-color: #00C96B;
+
+  /* ?�?�?� ?�?�포그래???�?�?� */
+  --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Nanum Gothic', sans-serif;
+  --font-code: 'JetBrains Mono', 'D2Coding', 'Fira Code', monospace;
+
+  /* ?�?�?� ?�이�??��????�?�?� */
+  --text-xs:   0.70rem;
+  --text-sm:   0.825rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  /* ?�?�?� ?�페?�싱 ?�?�?� */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ?�?�?� 반경 (?�우기술 ?��??? 직사각형 ?�주, ?�립?�스 ?�음) ?�?�?� */
+  --radius-sm:   0.25rem;  /* ?�우 ?�이??직사�?버튼 ?��???*/
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 9999px;
+
+  /* ?�?�?� ?�환 ?�?�?� */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ?�?�?� 그림??/ 글로우 (?�우 블루 기반) ?�?�?� */
+  --glow-blue:    0 0 20px rgba(36, 132, 198, 0.15), 0 0 50px rgba(36, 132, 198, 0.05);
+  --glow-cyan:    0 0 20px rgba(67, 212, 233, 0.15), 0 0 50px rgba(67, 212, 233, 0.05);
+  --glow-gold:    0 0 20px rgba(248, 211, 6, 0.15),  0 0 50px rgba(248, 211, 6, 0.05);
+  --shadow-card:  0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ?�?�?� Z-Index ?�?�?� */
+  --z-nav:     100;
+  --z-modal:   200;
+  --z-overlay: 150;
+
+  /* ?�?�?� ?�거???�환 별칭 (기존 --nexon-* 참조 CSS ?�환) ?�?�?� */
+  /* 배경 */
+  --nexon-bg-main:       var(--daou-bg-dark);
+  --nexon-bg-surface:    var(--daou-bg-surface);
+  --nexon-bg-card:       var(--daou-bg-card);
+  --nexon-bg-card-hover: var(--daou-bg-card-hover);
+  --nexon-bg-modal:      var(--daou-bg-modal);
+  /* 브랜??컬러 */
+  --nexon-blue:          var(--daou-blue);
+  --nexon-blue-dark:     var(--daou-blue-dark);
+  --nexon-blue-glow:     var(--daou-blue-glow);
+  --nexon-cyan:          var(--daou-cyan);
+  --nexon-cyan-glow:     var(--daou-cyan-glow);
+  --nexon-cyan-dim:      var(--daou-cyan-dim);
+  /* ?�임 ??골드 교체 (?�우 ?�자???�어) */
+  --nexon-lime:          var(--finance-gold);
+  --nexon-lime-glow:     var(--finance-gold-glow);
+  --nexon-lime-dim:      var(--finance-gold-dim);
+  /* ?�스??*/
+  --nexon-text-primary:  var(--daou-text-primary);
+  --nexon-text-secondary: var(--daou-text-secondary);
+  --nexon-text-muted:    var(--daou-text-muted);
+  --nexon-text-dim:      var(--daou-text-dim);
+  --nexon-text-cyan:     var(--daou-text-cyan);
+  --nexon-text-lime:     var(--daou-text-gold);
+  /* 보더 */
+  --nexon-border:        var(--daou-border);
+  --nexon-border-light:  var(--daou-border-light);
+  --nexon-border-glow:   var(--daou-blue-glow);
+  --nexon-border-lime:   var(--finance-gold-glow);
+  /* 그라?�언??*/
+  --grad-nexon-primary:  var(--grad-daou-primary);
+  --grad-blue-lime:      var(--grad-daou-primary);
+  --grad-blue-dark:      var(--grad-daou-finance);
+  /* 글로우 */
+  --glow-lime:           var(--glow-gold);
+  /* ?�공/경고 */
+  --nexon-success:       var(--finance-green);
+  --nexon-success-glow:  var(--finance-green-glow);
+  --nexon-warning:       var(--finance-gold);
+  --nexon-accent:        #FF6B4A;
+  --nexon-accent-glow:   rgba(255, 107, 74, 0.3);
+  --nexon-navy:          var(--daou-bg-dark);
+}

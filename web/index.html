@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description"
+    content="하성용 소프트웨어 엔지니어 포트폴리오 — 실시간 시스템 최적화(VR 90fps), Android 및 AI 파이프라인 전문. CJ제일제당 신입 SW 개발자 지원.">
+  <meta name="keywords" content="하성용, CJ, CJ제일제당, ONLYONE, 하고잡이, 시스템 최적화, Android, Java, C++, AI 파이프라인, SSAFY, 포트폴리오">
+  <meta property="og:title" content="하성용 | CJ제일제당 ONLYONE SW 엔지니어 포트폴리오">
+  <meta property="og:description" content="건강, 즐거움, 편리를 창조하는 소프트웨어 엔지니어 하성용입니다.">
+  <title>하성용 | ONLYONE SW Engineer Portfolio · CJ제일제당</title>
+
+  <!-- CJ Design System -->
+  <link rel="stylesheet" href="css/cj-tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/project-detail-modal.css">
+  <link rel="stylesheet" href="css/tech-icons.css">
+
+  <!-- CJ 공식 SVG 파비콘 -->
+  <link rel="icon" type="image/svg+xml" href="assets/cj_logo.svg">
+
+  <style>
+    /* ── CJ 인라인 오버라이드 (빠른 화이트 테마 확정) ── */
+    body {
+      background-color: #FFFFFF;
+    }
+
+    /* CJ 블로썸 3색 시그니처 탑바 */
+    #cj-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #EF151E 0%, #FF9700 50%, #006ECD 100%);
+      z-index: 9999;
+    }
+
+    /* 헤더 화이트 테마 */
+    #site-nav {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #E5E8EB;
+      top: 4px;
+    }
+
+    #site-nav .nav-logo-main {
+      color: #1A1A1A;
+    }
+
+    #site-nav .nav-logo-sub {
+      color: #006ECD;
+    }
+
+    #site-nav .nav-links a {
+      color: #4E5968;
+    }
+
+    #site-nav .nav-links a:hover {
+      color: #1A1A1A;
+    }
+
+    #site-nav .nav-links li {
+      list-style: none;
+    }
+
+
+    /* 헤더 nav-logo — CJ 공식 로고 */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-cj-logo-img {
+      height: 32px;
+      width: auto;
+      display: block;
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-logo:hover .nav-cj-logo-img {
+      transform: scale(1.08);
+    }
+
+    .nav-cj-logo-white {
+      display: none !important;
+    }
+
+    .nav-cj-logo-dark {
+      display: block !important;
+    }
+
+    /* 스크롤 시 어두운 네이비 배경에서 CJ 글자를 하얀색으로 전환 */
+    #site-nav.nav-scrolled .nav-cj-logo-dark {
+      display: none !important;
+    }
+
+    #site-nav.nav-scrolled .nav-cj-logo-white {
+      display: block !important;
+    }
+
+    #site-nav.nav-scrolled .nav-logo-divider {
+      background: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .nav-logo-divider {
+      width: 1px;
+      height: 22px;
+      background: #E5E8EB;
+    }
+
+    .hero-cj-badge-logo {
+      height: 22px;
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 8px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
+    }
+
+    .cj-fit-header-logo {
+      height: 18px;
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .footer-cj-logo {
+      height: 30px;
+      width: auto;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .footer-cj-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* 스캔라인 오버레이 제거 */
+    .scanline-overlay {
+      display: none !important;
+    }
+
+    /* 스크롤 진행 바 — CJ Blossom */
+    #scroll-progress {
+      background: linear-gradient(90deg, #EF151E 0%, #FF9700 50%, #006ECD 100%) !important;
+    }
+
+    /* HERO — 화이트 배경 */
+    #hero {
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 10% 20%, rgba(239, 21, 30, 0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 45% at 90% 80%, rgba(0, 110, 205, 0.06) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 50% 50%, rgba(255, 151, 0, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* HERO 텍스트 */
+    .hero-eyebrow {
+      color: #8B95A1;
+    }
+
+    .hero-eyebrow-line {
+      background: linear-gradient(90deg, transparent, #EF151E, #FF9700, #006ECD, transparent);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      color: #1A1A1A;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #EF151E 0%, #FF9700 52%, #006ECD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      color: #4E5968;
+    }
+
+    #hero-typing,
+    .text-cyan {
+      color: #006ECD !important;
+    }
+
+    /* HERO 통계 카드 */
+    .hero-stat {
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      color: #1A1A1A !important;
+      font-weight: 800;
+    }
+
+    .hero-stat-num span {
+      color: #EF151E;
+    }
+
+    .hero-stat-label {
+      color: #8B95A1;
+      font-size: 0.78rem;
+    }
+
+    /* HERO CTA 버튼 */
+    .btn-primary {
+      background: #EF151E !important;
+      border-color: #EF151E !important;
+      color: #fff !important;
+      box-shadow: 0 6px 20px rgba(239, 21, 30, 0.25) !important;
+      clip-path: none !important;
+    }
+
+    .btn-primary:hover {
+      background: #D60E16 !important;
+      border-color: #D60E16 !important;
+      box-shadow: 0 10px 28px rgba(239, 21, 30, 0.32) !important;
+    }
+
+    .btn-secondary {
+      background: #FFFFFF !important;
+      border: 1px solid #D1D6DB !important;
+      color: #4E5968 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+      clip-path: none !important;
+    }
+
+    .btn-secondary:hover {
+      border-color: #006ECD !important;
+      color: #006ECD !important;
+      background: #EDF5FC !important;
+    }
+
+    .btn-ghost {
+      clip-path: none !important;
+      color: #4E5968 !important;
+    }
+
+    .btn-ghost:hover {
+      color: #1A1A1A !important;
+    }
+
+    /* HERO 키워드 배지 */
+    .badge {
+      clip-path: none !important;
+      border-radius: 9999px !important;
+      font-size: 12px !important;
+      font-weight: 600;
+    }
+
+    .badge-blue {
+      background: #EDF5FC !important;
+      color: #006ECD !important;
+      border: 1px solid rgba(0, 110, 205, 0.2) !important;
+    }
+
+    .badge-cyan {
+      background: #EDF5FC !important;
+      color: #006ECD !important;
+      border: 1px solid rgba(0, 110, 205, 0.2) !important;
+    }
+
+    .badge-ghost {
+      background: #F1F3F5 !important;
+      color: #4E5968 !important;
+      border: 1px solid #E5E8EB !important;
+    }
+
+    .badge-green {
+      background: rgba(0, 168, 107, 0.1) !important;
+      color: #00895A !important;
+      border: 1px solid rgba(0, 168, 107, 0.2) !important;
+    }
+
+    .badge-red {
+      background: #FFEBEC !important;
+      color: #EF151E !important;
+      border: 1px solid rgba(239, 21, 30, 0.2) !important;
+    }
+
+    .badge-yellow {
+      background: #FFF6EB !important;
+      color: #B86F00 !important;
+      border: 1px solid rgba(255, 151, 0, 0.25) !important;
+    }
+
+    /* CJ 가치 배지 (HERO 하단) */
+    .cj-value-chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      margin-bottom: 18px;
+      /* 가치 배지와 하단 기술 키워드 사이 여백 확보 */
+      justify-content: flex-start;
+    }
+
+    .hero-keywords {
+      margin-bottom: 32px !important;
+    }
+
+    .cj-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 15px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1.5px solid;
+      letter-spacing: 0.02em;
+    }
+
+    .cj-chip-red {
+      background: #FFEBEC;
+      color: #EF151E;
+      border-color: rgba(239, 21, 30, 0.25);
+    }
+
+    .cj-chip-yellow {
+      background: #FFF6EB;
+      color: #B86F00;
+      border-color: rgba(255, 151, 0, 0.30);
+    }
+
+    .cj-chip-blue {
+      background: #EDF5FC;
+      color: #006ECD;
+      border-color: rgba(0, 110, 205, 0.25);
+    }
+
+    /* 섹션 공통 화이트/그레이 교차 */
+    #about {
+      background: #F8F9FA;
+    }
+
+    #skills {
+      background: #FFFFFF;
+    }
+
+    #projects {
+      background: #F8F9FA;
+    }
+
+    #nexon-fit {
+      background: #FFFFFF;
+    }
+
+    .nexon-grid-bg {
+      background-color: #F8F9FA !important;
+    }
+
+    /* 섹션 라벨 */
+    .section-label {
+      color: #006ECD !important;
+    }
+
+    .section-title {
+      color: #1A1A1A !important;
+    }
+
+    .divider {
+      background: linear-gradient(90deg, #EF151E 0%, #FF9700 50%, #006ECD 100%) !important;
+    }
+
+    /* 프로필 카드 화이트 */
+    .about-profile-box {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 16px !important;
+      clip-path: none !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    .about-avatar {
+      background: linear-gradient(135deg, #EF151E 0%, #FF9700 52%, #006ECD 100%) !important;
+    }
+
+    .about-position {
+      color: #006ECD !important;
+    }
+
+    .about-title-top {
+      color: #EF151E !important;
+    }
+
+    .about-title-bottom {
+      color: #1A1A1A !important;
+    }
+
+    .contact-icon {
+      background: #EDF5FC !important;
+    }
+
+    /* 타임라인 */
+    .timeline-item::before {
+      background: linear-gradient(180deg, #EF151E 0%, #FF9700 50%, #006ECD 100%);
+    }
+
+    .timeline-date {
+      color: #006ECD !important;
+    }
+
+    .timeline-title {
+      color: #1A1A1A !important;
+    }
+
+    /* 기술 스택 */
+    .tech-icon-btn {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 12px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .tech-icon-btn:hover,
+    .tech-icon-btn.active {
+      border-color: #006ECD !important;
+      box-shadow: 0 6px 20px rgba(0, 110, 205, 0.14) !important;
+    }
+
+    .tib-label {
+      color: #4E5968 !important;
+    }
+
+    .tech-icon-btn.active .tib-label {
+      color: #006ECD !important;
+    }
+
+    .invert-icon {
+      filter: invert(1) brightness(0.2) !important;
+    }
+
+    /* 기술 설명 영역 */
+    #tech-selected-desc-zone {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 12px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* 프로젝트 카드 */
+    .project-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 14px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+      clip-path: none !important;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0, 110, 205, 0.3) !important;
+      box-shadow: 0 16px 40px rgba(0, 110, 205, 0.10) !important;
+    }
+
+    .project-title {
+      color: #1A1A1A !important;
+    }
+
+    .project-desc {
+      color: #4E5968 !important;
+    }
+
+    .project-tech-tag {
+      clip-path: none !important;
+      border-radius: 9999px !important;
+    }
+
+    /* 필터 탭 */
+    .filter-tab {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 9999px !important;
+      color: #4E5968 !important;
+      clip-path: none !important;
+    }
+
+    .filter-tab.active,
+    .filter-tab:hover {
+      background: #006ECD !important;
+      border-color: #006ECD !important;
+      color: #FFFFFF !important;
+    }
+
+    /* CJ FIT 섹션 */
+    .job-requirements {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 16px !important;
+      clip-path: none !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .job-req-header {
+      border-bottom: 1px solid #E5E8EB !important;
+    }
+
+    .job-req-check.pass {
+      background: linear-gradient(135deg, #006ECD, #20A4F3) !important;
+      color: #fff !important;
+    }
+
+    .job-req-check.good {
+      background: linear-gradient(135deg, #EF151E, #FF9700) !important;
+      color: #fff !important;
+    }
+
+    .job-req-text strong {
+      color: #1A1A1A !important;
+    }
+
+    .job-req-text {
+      color: #4E5968 !important;
+    }
+
+    /* 가치 카드 */
+    .nexon-values-grid {
+      gap: 16px !important;
+    }
+
+    .value-card {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      border-radius: 14px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+      clip-path: none !important;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px) !important;
+    }
+
+    /* 푸터 */
+    #site-footer {
+      background: #1A1A1A !important;
+      border-top: 4px solid transparent !important;
+      border-image: linear-gradient(90deg, #EF151E 0%, #FF9700 50%, #006ECD 100%) 1 !important;
+    }
+
+    .footer-brand-title {
+      color: #FFFFFF !important;
+    }
+
+    .footer-brand-desc {
+      color: #8B95A1 !important;
+    }
+
+    .footer-links-col h6 {
+      color: #FFFFFF !important;
+    }
+
+    .footer-links-list a {
+      color: #8B95A1 !important;
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF !important;
+    }
+
+    .footer-copy {
+      color: #8B95A1 !important;
+    }
+
+    .footer-social a {
+      border-color: #333 !important;
+      color: #8B95A1 !important;
+    }
+
+    .footer-social a:hover {
+      border-color: #006ECD !important;
+      color: #006ECD !important;
+    }
+
+    /* 모달 */
+    #project-modal {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E8EB !important;
+      clip-path: none !important;
+      border-radius: 20px !important;
+    }
+
+    .modal-header {
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #E5E8EB !important;
+    }
+
+    .modal-close {
+      color: #4E5968 !important;
+    }
+
+    .modal-tabs {
+      background: #F8F9FA !important;
+      border-bottom: 1px solid #E5E8EB !important;
+    }
+
+    .modal-tab {
+      color: #4E5968 !important;
+    }
+
+    .modal-tab.active {
+      color: #EF151E !important;
+      border-color: #EF151E !important;
+    }
+
+    .modal-footer {
+      background: #FFFFFF !important;
+      border-top: 1px solid #E5E8EB !important;
+    }
+
+    #modal-overlay {
+      background: rgba(0, 0, 0, 0.45) !important;
+    }
+
+    /* 모바일 네비 */
+    .mobile-nav {
+      background: rgba(255, 255, 255, 0.98) !important;
+      backdrop-filter: blur(16px);
+    }
+
+    .mobile-nav a {
+      color: #1A1A1A !important;
+    }
+
+    .hamburger span {
+      background: #1A1A1A !important;
+    }
+
+    .mobile-close {
+      color: #1A1A1A !important;
+    }
+
+    /* 섹션 타이틀 CJ FIT */
+    #nexon-fit .section-label {
+      color: #EF151E !important;
+    }
+
+    #nexon-fit .section-title {
+      color: #1A1A1A !important;
+    }
+
+    /* CJ FIT 헤더 라벨 */
+    .cj-fit-header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #EF151E;
+      padding: 5px 12px;
+      border: 1.5px solid rgba(239, 21, 30, 0.3);
+      border-radius: 9999px;
+      background: #FFEBEC;
+      margin-bottom: 12px;
+    }
+
+    /* CJ 블로썸 카드 3색 액센트 라인 */
+    .value-card-blossom {
+      border-top: 3px solid;
+    }
+
+    .value-card-red {
+      border-top-color: #EF151E !important;
+    }
+
+    .value-card-yellow {
+      border-top-color: #FF9700 !important;
+    }
+
+    .value-card-blue {
+      border-top-color: #006ECD !important;
+    }
+
+    .value-card-purple {
+      border-top-color: #7928CA !important;
+    }
+
+    /* About 소개 섹션 텍스트 */
+    .about-desc p {
+      color: #4E5968 !important;
+      word-break: keep-all;
+    }
+
+    /* 기타 유틸 */
+    p {
+      color: #4E5968;
+    }
+
+    a {
+      color: #006ECD;
+    }
+
+    a:hover {
+      color: #1A1A1A;
+    }
+
+    strong {
+      color: #1A1A1A;
+    }
+
+    code {
+      color: #006ECD;
+      background: #EDF5FC;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CJ 블로썸 3색 탑바 -->
+  <div id="cj-topbar" aria-hidden="true"></div>
+
+  <!-- 스크롤 진행 바 -->
+  <div id="scroll-progress" style="
+    position:fixed;top:4px;left:0;height:3px;width:0;
+    background:linear-gradient(90deg,#EF151E 0%,#FF9700 50%,#006ECD 100%);
+    z-index:9998;transition:width 0.1s linear;pointer-events:none;" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════
+     GNB (Global Navigation Bar)
+════════════════════════════════════════════ -->
+  <header id="site-nav" role="banner">
+    <div class="nav-inner">
+      <!-- CJ 제일제당 로고 -->
+      <a href="#hero" class="nav-logo" aria-label="홈으로">
+        <div class="nav-logo-brand">
+          <img src="assets/cj_cheiljedang_logo.png" alt="CJ제일제당" class="nav-cj-logo-img nav-cj-logo-dark">
+          <img src="assets/cj_cheiljedang_logo_white.png" alt="CJ제일제당" class="nav-cj-logo-img nav-cj-logo-white">
+        </div>
+        <div class="nav-logo-divider" aria-hidden="true"></div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">HA SUNG YONG</span>
+          <span class="nav-logo-sub">SW Engineer</span>
+        </div>
+      </a>
+
+      <!-- 메뉴 -->
+      <nav aria-label="주요 내비게이션">
+        <ul class="nav-links">
+          <li><a href="#about" id="nav-about">About</a></li>
+          <li><a href="#skills" id="nav-skills">Skills</a></li>
+          <li><a href="#projects" id="nav-projects">Projects</a></li>
+          <li><a href="#nexon-fit" id="nav-cj">CJ Fit</a></li>
+        </ul>
+      </nav>
+
+      <!-- 우측 액션 -->
+      <div class="nav-actions" style="display:flex;align-items:center;gap:12px;">
+        <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">GitHub</a>
+      </div>
+
+      <!-- 모바일 햄버거 -->
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 모바일 풀스크린 내비 -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 내비게이션">
+    <button class="mobile-close" id="mobile-close" aria-label="메뉴 닫기">✕</button>
+    <div style="margin-bottom: 28px; text-align: center;">
+      <img src="assets/cj_cheiljedang_logo.png" alt="CJ제일제당" style="height: 38px; width: auto; display: inline-block;">
+    </div>
+    <a href="#about" data-section>About</a>
+    <a href="#skills" data-section>Skills</a>
+    <a href="#projects" data-section>Projects</a>
+    <a href="#nexon-fit" data-section>CJ Fit</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-fade-up">
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+        <img src="assets/cj_cheiljedang_logo.png" alt="CJ제일제당" class="hero-cj-badge-logo">
+        <span>CJ CHEILJEDANG · SW ENGINEER PORTFOLIO</span>
+        <span class="hero-eyebrow-line" aria-hidden="true"></span>
+      </div>
+
+      <h1 id="hero-title" class="hero-title animate-fade-up delay-100">
+        <span class="line-break">START YOUR</span>
+        <span class="line-break highlight">ONLYONE MOMENT</span>
+        <span class="line-break">WITH TECHNOLOGY</span>
+      </h1>
+
+      <p class="hero-subtitle animate-fade-up delay-200">
+        건강하고, 즐겁고, 편리한 라이프스타일을 기술로 창조하는 엔지니어<br>
+        <strong style="color:#006ECD;font-family:var(--font-code);">
+          <span id="hero-typing" aria-live="polite"></span><span class="typing-cursor" aria-hidden="true"></span>
+        </strong>
+      </p>
+
+      <!-- CJ 3색 가치 배지 -->
+      <div class="cj-value-chips animate-fade-up delay-250">
+        <span class="cj-chip cj-chip-red">🔴 건강 (Health)</span>
+        <span class="cj-chip cj-chip-yellow">🟡 즐거움 (Joy)</span>
+        <span class="cj-chip cj-chip-blue">🔵 편리 (Convenience)</span>
+        <span class="cj-chip cj-chip-blue"
+          style="background:#F7EDFF;color:#7928CA;border-color:rgba(121,40,202,0.25);">⬡ ONLYONE</span>
+      </div>
+
+      <!-- 핵심 기술 키워드 배지 -->
+      <div class="hero-keywords animate-fade-up delay-300" aria-label="핵심 기술">
+        <span class="badge badge-blue">Java</span>
+        <span class="badge badge-blue">C++</span>
+        <span class="badge badge-blue">Android</span>
+        <span class="badge badge-red">AI Pipeline</span>
+        <span class="badge badge-ghost">C#</span>
+        <span class="badge badge-ghost">System Design</span>
+        <span class="badge badge-green">SSAFY</span>
+        <span class="badge badge-yellow">실시간 최적화</span>
+      </div>
+
+      <!-- CTA 버튼 -->
+      <div class="hero-actions animate-fade-up delay-400">
+        <a href="#projects" class="btn btn-primary" id="cta-projects">
+          프로젝트 둘러보기 →
+        </a>
+        <a href="#about" class="btn btn-secondary" id="cta-about">
+          개발자 소개 보기
+        </a>
+        <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" class="btn btn-ghost" id="cta-github">
+          🐙 GitHub
+        </a>
+      </div>
+
+      <!-- 통계 -->
+      <div class="hero-stats animate-fade-up delay-500">
+        <div class="hero-stat">
+          <div class="hero-stat-num">6<span>+</span></div>
+          <div class="hero-stat-label">Projects</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1<span>년</span></div>
+          <div class="hero-stat-label">장기 팀 프로젝트</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">90<span>fps</span></div>
+          <div class="hero-stat-label">실시간 성능 달성</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">🏆</div>
+          <div class="hero-stat-label">캡스톤 총장상</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     ABOUT SECTION
+════════════════════════════════════════════ -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">ONLYONE Engineer Profile</span>
+        <h2 class="section-title" id="about-title">개발자 소개</h2>
+        <div class="divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- 프로필 카드 -->
+        <aside class="about-profile-box reveal-left" aria-label="개발자 프로필">
+          <h3 class="about-name">하 성 용</h3>
+          <div class="about-position">Ha Sung Yong · SW Engineer</div>
+
+          <ul class="about-contact" aria-label="연락처 정보">
+            <li>
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <a class="contact-val" href="tel:010-7572-9429">010-7572-9429</a>
+            </li>
+            <li>
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <a class="contact-val" href="mailto:gktjddyd9429@naver.com">gktjddyd9429@naver.com</a>
+            </li>
+            <li>
+              <div class="contact-icon" aria-hidden="true">🐙</div>
+              <a class="contact-val" href="https://github.com/gktjddyd" target="_blank" rel="noopener">
+                github.com/gktjddyd
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- 소개 본문 -->
+        <div class="about-desc reveal-right">
+          <h4>
+            <span class="about-title-top">반듯한 하고잡이(Hagojabi) 엔지니어</span>
+            <span class="about-title-bottom">안 될 이유를 지우며, 끝단까지 실행해 코드로 증명.</span>
+          </h4>
+          <p>
+            <strong>시스템 안정성과 실시간 처리 성능</strong>을 사용자 신뢰의 핵심 기반으로 정의.<br>
+            URP Render Pass, Stencil Buffer, FBO 오프스크린 렌더링을 직접 구현하며 렌더링 파이프라인 동작 원리 심층 분석 및 <strong>목표필달 끝단 최적화 수행</strong>.
+          </p>
+          <p>
+            1년간의 팀 VR 프로젝트를 통해 <strong>실시간 최적화·협업·완결성을 검증</strong>.<br>
+            기획 변경에 유연한 아키텍처 설계 및 기획·아트 직군과의 긴밀한 소통을 바탕으로, <strong>안 될 이유를 지우며 끝까지 해내는 '하고잡이' 원팀 프로젝트 완수</strong>.
+          </p>
+          <p>
+            <strong>CJ제일제당 글로벌 IT·DX 환경에서의 안정적 시스템 개발과 AI 서비스 구현</strong>을 목표로 지원.<br>
+            견고한 시스템 안정성과 고품질 기술의 결합으로, 전 세계 고객에게 최고의 가치를 전하는 <strong>ONLYONE 사용자 경험 제공 목표</strong>.
+          </p>
+
+          <!-- 타임라인 -->
+          <div class="timeline" style="margin-top:var(--space-8)" aria-label="경력 및 학력 타임라인">
+            <div class="timeline-item">
+              <div class="timeline-date">2026.07 ~ 현재</div>
+              <div class="timeline-title">삼성 청년 SW AI 아카데미 (SSAFY)</div>
+              <div class="timeline-desc">알고리즘 실력 향상 및 AI 지식·활용 역량 구축</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025.05</div>
+              <div class="timeline-title">제 15회 숭실 캡스톤디자인 공학 경진대회 총장상 (동상)</div>
+              <div class="timeline-desc">이오름(Eorum) — 청각 장애인 AI 구화 학습 서비스</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025.05.23 ~ 25</div>
+              <div class="timeline-title">글로벌미디어학부 졸업 프로젝트 전시</div>
+              <div class="timeline-desc">The Mute Brush_ VR 체험 전시 성공 런칭</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2023.03 ~ 2026.08</div>
+              <div class="timeline-title">숭실대학교 컴퓨터학부 복수전공</div>
+              <div class="timeline-desc">IT대학 컴퓨터학부 · 자료구조, 알고리즘, 컴퓨터그래픽스 이수</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2020.03 ~ 2026.08</div>
+              <div class="timeline-title">숭실대학교 IT대학 글로벌미디어학부 주전공</div>
+              <div class="timeline-desc">시뮬레이션 엔진, VR/AR, 렌더링, 미디어 프로그래밍 집중 이수</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     SKILLS SECTION
+════════════════════════════════════════════ -->
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Tech Stack</span>
+        <h2 class="section-title" id="skills-title">기술 역량</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          시스템 최적화, AI 파이프라인, 모바일까지<br>
+          ONLYONE 정신으로 깊이 파고드는 엔지니어링 역량
+        </p>
+      </div>
+
+      <!-- 선택된 기술 설명 영역 -->
+      <div id="tech-selected-desc-zone" class="tech-selected-desc-zone" aria-live="polite">
+        <p id="tech-selected-desc-text"></p>
+      </div>
+
+      <!-- 인터랙티브 기술 아이콘 그리드 -->
+      <div class="tech-icon-stage" id="tech-icon-stage" aria-label="기술 스택">
+        <div class="tech-icons-grid" id="tech-icons-grid">
+
+          <!-- Java -->
+          <button class="tech-icon-btn" data-tech="java" aria-label="Java 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+                alt="Java Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Java</span>
+          </button>
+
+          <!-- C++ -->
+          <button class="tech-icon-btn" data-tech="cpp" aria-label="C++ 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">C++</span>
+          </button>
+
+          <!-- C -->
+          <button class="tech-icon-btn" data-tech="c" aria-label="C 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/c.svg" alt="C Logo" class="tech-img">
+            </div>
+            <span class="tib-label">C</span>
+          </button>
+
+          <!-- SQL -->
+          <button class="tech-icon-btn" data-tech="sql" aria-label="SQL 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/sql.svg" alt="SQL Logo" class="tech-img">
+            </div>
+            <span class="tib-label">SQL</span>
+          </button>
+
+          <!-- Vue -->
+          <button class="tech-icon-btn" data-tech="vue" aria-label="Vue.js 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/vue.svg" alt="Vue Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Vue</span>
+          </button>
+
+          <!-- C# -->
+          <button class="tech-icon-btn" data-tech="csharp" aria-label="C# 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C# Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">C#</span>
+          </button>
+
+          <!-- Python -->
+          <button class="tech-icon-btn" data-tech="python" aria-label="Python 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">Python</span>
+          </button>
+
+          <!-- Android Studio -->
+          <button class="tech-icon-btn" data-tech="android" aria-label="Android Studio 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Android_Studio_icon_%282023%29.svg"
+                alt="Android Studio Logo" class="tech-img">
+            </div>
+            <span class="tib-label">Android</span>
+          </button>
+
+          <!-- OpenCV -->
+          <button class="tech-icon-btn" data-tech="opencv" aria-label="OpenCV 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg"
+                alt="OpenCV Logo" class="tech-img">
+            </div>
+            <span class="tib-label">OpenCV</span>
+          </button>
+
+          <!-- Unity -->
+          <button class="tech-icon-btn" data-tech="unity" aria-label="Unity 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity Logo"
+                class="tech-img invert-icon">
+            </div>
+            <span class="tib-label">Unity</span>
+          </button>
+
+          <!-- OpenGL -->
+          <button class="tech-icon-btn" data-tech="opengl" aria-label="OpenGL 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/OpenGL_logo.svg" alt="OpenGL Logo"
+                class="tech-img">
+            </div>
+            <span class="tib-label">OpenGL</span>
+          </button>
+
+          <!-- CUDA -->
+          <button class="tech-icon-btn" data-tech="cuda" aria-label="CUDA 자세히 보기">
+            <div class="tib-icon-wrap">
+              <img src="assets/cuda.svg" alt="CUDA Logo" class="tech-img">
+            </div>
+            <span class="tib-label">CUDA</span>
+          </button>
+        </div><!-- /.tech-icons-grid -->
+      </div><!-- /.tech-icon-stage -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     PROJECTS SECTION
+════════════════════════════════════════════ -->
+  <section id="projects" class="section nexon-grid-bg" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title" id="projects-title">프로젝트 쇼케이스</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          총 6개 프로젝트 — 각 카드의 <strong style="color:#006ECD;">Deep-Dive</strong> 버튼으로
+          아키텍처 및 트러블슈팅 상세 분석 확인 가능.
+        </p>
+      </div>
+
+      <!-- 필터 탭 -->
+      <div class="filter-tabs" role="tablist" aria-label="프로젝트 필터">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-tab" data-filter="unity" role="tab" aria-selected="false">Unity / C#</button>
+        <button class="filter-tab" data-filter="opengl" role="tab" aria-selected="false">OpenGL / C++</button>
+        <button class="filter-tab" data-filter="other" role="tab" aria-selected="false">AI · Android · CV</button>
+      </div>
+
+      <!-- 프로젝트 그리드 (JS로 채워짐) -->
+      <div id="projects-grid" class="projects-grid" role="list" aria-label="프로젝트 목록">
+        <!-- JS에서 렌더링 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     CJ FIT SECTION
+════════════════════════════════════════════ -->
+  <section id="nexon-fit" class="section" aria-labelledby="cj-fit-title">
+    <div class="container">
+      <div class="section-header">
+        <div class="cj-fit-header-label">
+          <img src="assets/cj_cheiljedang_logo.png" alt="CJ제일제당" class="cj-fit-header-logo">
+          CJ제일제당 ONLYONE × HA SUNG YONG
+        </div>
+        <span class="section-label" style="color:#EF151E !important;">CJ BLOSSOM FIT</span>
+        <h2 class="section-title" id="cj-fit-title">핵심 역량 · 직무 적합성 검증</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="section-desc">
+          CJ의 ONLYONE 정신과 건강·즐거움·편리라는 세 가지 가치 — <br>
+          하성용의 실전 프로젝트가 이 모든 가치와 어떻게 맞닿아 있는지 검증합니다.
+        </p>
+      </div>
+
+      <!-- CJ FIT 직무 체크리스트 -->
+      <div class="job-requirements reveal" style="max-width:820px;margin:0 auto var(--space-12)">
+        <div class="job-req-header" style="padding:20px 24px 16px;">
+          <h4 style="font-size:1.1rem;font-weight:800;color:#1A1A1A;margin:0;">
+            🌸 CJ ONLYONE × 3-BLOSSOM 직무 적합성 체크리스트
+          </h4>
+        </div>
+        <ul class="job-req-list" style="padding:0 16px 16px;" aria-label="CJ 직무 역량 검증 목록">
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>🔵 ONLYONE — Java, C++, Python 원천 구현 역량</strong>
+              C++ OpenGL 렌더링 파이프라인 직접 구현 · DICOM 의료 영상 파이프라인 · C#(Unity) VR 클라이언트 총괄 · Python FastAPI
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>🔵 편리(Convenience) — 스마트 시스템 & 초격차 최적화</strong>
+              VR HMD 90fps 방어 — URP 렌더 패스 오픈소스 코드 분석·다운샘플링 최적화 · Android ↔ FastAPI 비동기 파이프라인
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>🟡 즐거움(Joy) — 인터랙티브 미디어 & 창의적 경험</strong>
+              1년간의 3D VR 게임 클라이언트 총괄 · 기하학 수학 프리미티브 3D 캐릭터 완성 · 몰입감 있는 미디어 인터랙션 설계
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>🔴 건강(Health) — AI 라이프 솔루션 & 모바일 앱</strong>
+              이오름(Eorum): 청각 장애인 AI 구화 학습 Android 앱 · DTW 시계열 매칭 97.8% 정밀도 · SSAFY AI 교육 이수
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check pass" aria-label="검증 완료">✓</div>
+            <div class="job-req-text">
+              <strong>🌸 인재 & 상생 — 원팀 협업 및 장기 프로젝트 완주</strong>
+              기획·아트 이종 직군 3인 팀 1년 장기 협업 완주 · 졸업전시 성공 런칭 · 제15회 숭실 캡스톤 총장상(동상) 수상
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check good" aria-label="심화 역량">★</div>
+            <div class="job-req-text">
+              <strong>⭐ 컴퓨터학부 복수전공 + SSAFY</strong>
+              자료구조·알고리즘·컴퓨터그래픽스·OS 이수 · 삼성 청년 SW AI 아카데미 입과(2026.07~)
+            </div>
+          </li>
+          <li class="job-req-item">
+            <div class="job-req-check good" aria-label="심화 역량">★</div>
+            <div class="job-req-text">
+              <strong>⭐ 시스템 아키텍처 설계 역량</strong>
+              컴포넌트 아키텍처 · 이벤트/옵저버 패턴 · 클라이언트-서버 비동기 파이프라인 구축
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 핵심 가치 카드 (JS로 채워짐) -->
+      <div id="values-container" class="nexon-values-grid" aria-label="CJ 핵심 개발 가치 카드">
+        <!-- JS에서 렌더링 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-title" style="display:flex;align-items:center;gap:12px;">
+            <img src="assets/cj_cheiljedang_logo_white.png" alt="CJ제일제당" class="footer-cj-logo">
+            <span>HA SUNG YONG</span>
+          </div>
+          <div class="footer-brand-desc">
+            건강, 즐거움, 편리를 창조하는 소프트웨어 엔지니어<br>
+            CJ제일제당 IT·SW 개발을 향한 열정과 기술력을 담은 포트폴리오
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h6>Projects</h6>
+          <ul class="footer-links-list">
+            <li><a href="#projects" onclick="openProjectModalById('mute-brush')">The Mute Brush_</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('eorum')">이오름 (Eorum)</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('carrot-mansion')">Carrot Mansion</a></li>
+            <li><a href="#projects" onclick="openProjectModalById('seek-card')">Seek the card</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h6>Links</h6>
+          <ul class="footer-links-list">
+            <li><a href="#about">About (개발자 소개)</a></li>
+            <li><a href="https://github.com/gktjddyd" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:gktjddyd9429@naver.com">Email</a></li>
+            <li><a href="https://cjcj-careers.com" target="_blank" rel="noopener">CJ제일제당 채용</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2026 Ha Sung Yong · ONLYONE SW Engineer Portfolio · Built with CJ Blossom Design System
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/gktjddyd" target="_blank" rel="noopener" aria-label="GitHub">
+            🐙
+          </a>
+          <a href="mailto:gktjddyd9429@naver.com" aria-label="이메일">
+            ✉️
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+     PROJECT DETAIL MODAL
+════════════════════════════════════════════ -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true"></div>
+
+  <div id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- 모달 헤더 -->
+    <div class="modal-header">
+      <div class="modal-header-left" id="modal-header-content">
+        <!-- JS에서 렌더링 -->
+      </div>
+      <button class="modal-close" id="modal-close-btn" aria-label="모달 닫기">✕</button>
+    </div>
+
+    <!-- 탭 -->
+    <div class="modal-tabs" role="tablist" id="modal-tabs">
+      <!-- JS에서 렌더링 -->
+    </div>
+
+    <!-- 바디 -->
+    <div class="modal-body" id="modal-body">
+      <!-- JS에서 렌더링 -->
+    </div>
+
+    <!-- 푸터 -->
+    <div class="modal-footer">
+      <div class="modal-footer-links" id="modal-footer-links">
+        <!-- JS에서 렌더링 -->
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="closeProjectModal()" aria-label="모달 닫기">
+        ✕ 닫기
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/data/projects-data.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/tech-icons.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- CJ 파티클 및 타이핑 오버라이드 -->
+  <script>
+    // 타이핑 키워드 CJ 맞춤화 (main.js 로드 후 오버라이드)
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window._typingKeywords) {
+        window._typingKeywords = [
+          '안 될 이유를 지우며 끝까지 해내는 하고잡이 개발자',
+          'VR 90fps 달성 실시간 최적화 엔지니어',
+          'Android + AI 파이프라인 풀스택 구축',
+          '목표필달 사명감과 끝단 실행력을 갖춘 엔지니어',
+          '기초가 탄탄한 C++ / Java 소프트웨어 엔지니어',
+          'ONLYONE 가치를 기술로 증명하는 개발자'
+        ];
+      }
+      // 파티클 색상 CJ Blossom 교체
+      if (window._particleColors) {
+        window._particleColors = ['#EF151E', '#FF9700', '#006ECD', '#FF8A8E', '#64B5F6'];
+      }
+    });
+  </script>
+
+</body>
+
+</html>

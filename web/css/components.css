@@ -1,0 +1,808 @@
+/* ============================================
+   components.css
+   ?�슨 ?�마 UI 컴포?�트 - 버튼, 배�?, 칩셋, 카드
+   ============================================ */
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   버튼 (Nexon Gate Cube Button)
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-main);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-base);
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--daou-blue);
+  color: #ffffff;
+  font-weight: 700;
+  clip-path: none;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--daou-blue);
+  box-shadow: 0 0 20px rgba(36, 132, 198, 0.25);
+}
+.btn-primary:hover {
+  background: var(--daou-blue-dark);
+  border-color: var(--daou-blue-dark);
+  box-shadow: 0 0 30px rgba(36, 132, 198, 0.45);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: rgba(36, 132, 198, 0.08);
+  color: var(--daou-primary);
+  clip-path: none;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--daou-blue);
+  font-weight: 700;
+}
+.btn-secondary:hover {
+  background: var(--daou-blue);
+  border-color: var(--daou-blue);
+  box-shadow: 0 4px 16px rgba(36, 132, 198, 0.35);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--daou-text-secondary);
+  border: 1px solid var(--daou-border);
+  clip-path: none;
+  border-radius: var(--radius-sm);
+}
+.btn-ghost:hover {
+  background: rgba(36, 132, 198, 0.08);
+  color: var(--daou-text-primary);
+  border-color: var(--daou-border-light);
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: var(--text-xs);
+}
+
+.btn-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  justify-content: center;
+  clip-path: none;
+  border-radius: var(--radius-sm);
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   배�? (Badge / Tag Chip)
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.badge-cyan {
+  background: rgba(10, 160, 210, 0.12);
+  color: var(--nexon-text-cyan);
+  border: 1px solid rgba(10, 160, 210, 0.3);
+}
+
+.badge-blue {
+  background: rgba(36, 132, 198, 0.12);
+  color: var(--daou-primary);
+  border: 1px solid rgba(36, 132, 198, 0.35);
+}
+
+.badge-green, .badge-lime {
+  background: rgba(180, 225, 20, 0.12);
+  color: var(--nexon-text-lime);
+  border: 1px solid rgba(180, 225, 20, 0.3);
+}
+
+.badge-red {
+  background: rgba(255, 149, 130, 0.12);
+  color: var(--nexon-accent);
+  border: 1px solid rgba(255, 75, 38, 0.25);
+}
+
+.badge-yellow {
+  background: rgba(255, 179, 0, 0.1);
+  color: var(--nexon-warning);
+  border: 1px solid rgba(255, 179, 0, 0.25);
+}
+
+.badge-ghost {
+  background: rgba(0, 51, 102, 0.04);
+  color: var(--nexon-text-secondary);
+  border: 1px solid var(--nexon-border);
+}
+
+/* daouFit 가치배지 */
+.badge-system    { background: rgba(36, 132, 198, 0.12);  color: var(--daou-blue);       border: 1px solid rgba(36, 132, 198, 0.3); }
+.badge-realtime  { background: rgba(12, 98, 150, 0.10);   color: var(--daou-text-cyan);  border: 1px solid rgba(12, 98, 150, 0.3); }
+.badge-ai        { background: rgba(95, 36, 228, 0.10);   color: var(--daou-purple);     border: 1px solid rgba(95, 36, 228, 0.3); }
+.badge-mobile    { background: rgba(217, 119, 6, 0.10);   color: var(--daou-text-gold);  border: 1px solid rgba(217, 119, 6, 0.3); }
+.badge-algorithm { background: rgba(4, 120, 87, 0.10);    color: #047857;                border: 1px solid rgba(4, 120, 87, 0.3); }
+
+/* 레거시 호환 */
+.badge-originality { background: rgba(36, 132, 198, 0.10);  color: var(--daou-blue);      border: 1px solid rgba(36, 132, 198, 0.3); }
+.badge-challenge   { background: rgba(12, 98, 150, 0.10);  color: var(--daou-text-cyan); border: 1px solid rgba(12, 98, 150, 0.3); }
+.badge-passion     { background: rgba(217, 119, 6, 0.10);  color: var(--daou-text-gold); border: 1px solid rgba(217, 119, 6, 0.3); }
+.badge-human       { background: rgba(4, 120, 87, 0.10);   color: #047857;               border: 1px solid rgba(4, 120, 87, 0.3); }
+
+/* ============================================
+   프로젝트 카드
+   ============================================ */
+.project-card {
+  background: var(--nexon-bg-card);
+  border: 1px solid var(--nexon-border);
+  clip-path: var(--angled-clip-md);
+  padding: 0;
+  overflow: hidden;
+  transition: all var(--transition-slow);
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,85,255,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.project-card:hover {
+  background: var(--nexon-bg-card-hover);
+  border-color: rgba(0, 210, 255, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,210,255,0.2), var(--glow-cyan);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card.featured {
+  clip-path: var(--angled-clip-lg);
+}
+
+.card-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--nexon-bg-surface);
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--nexon-bg-dark, #060913);
+  transition: transform var(--transition-slow);
+}
+
+.project-card:hover .card-thumbnail img {
+  transform: scale(1.05);
+}
+
+.card-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(7, 10, 19, 0.85) 100%
+  );
+}
+
+.card-thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: linear-gradient(135deg, var(--nexon-bg-surface), var(--nexon-bg-card));
+  color: var(--nexon-text-muted);
+}
+
+.card-thumbnail-placeholder .placeholder-icon {
+  font-size: 2.5rem;
+  opacity: 0.4;
+}
+
+.card-type-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 2;
+}
+
+.card-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 85, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: transform var(--transition-spring);
+  box-shadow: var(--glow-blue);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.project-card:hover .card-play-btn { transform: translate(-50%, -50%) scale(1); }
+
+.card-body {
+  padding: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.card-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--nexon-text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: var(--text-sm);
+  color: var(--nexon-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  background: rgba(0, 230, 118, 0.06);
+  border: 1px solid rgba(0, 230, 118, 0.15);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--nexon-success);
+  font-family: var(--font-code);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--nexon-border);
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.card-links {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   코드 블록
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.code-block {
+  background: #080C18;
+  border: 1px solid var(--nexon-border);
+  border-left: 3px solid var(--nexon-cyan);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  color: #A8D8FF;
+  overflow-x: auto;
+  position: relative;
+  line-height: 1.8;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--nexon-border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) var(--space-3);
+}
+
+.code-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--nexon-cyan);
+  box-shadow: 0 0 8px var(--nexon-cyan);
+}
+
+.code-lang-label {
+  font-size: var(--text-xs);
+  color: var(--nexon-text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�러블슈??카드 (Before / After)
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.troubleshoot-card {
+  background: var(--nexon-bg-card);
+  border: 1px solid var(--nexon-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.ts-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: rgba(255, 75, 38, 0.06);
+  border-bottom: 1px solid rgba(255, 75, 38, 0.15);
+}
+
+.ts-header .ts-icon {
+  color: var(--nexon-accent);
+  font-size: 1.2rem;
+}
+
+.ts-header h5 {
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  color: var(--nexon-accent);
+}
+
+.ts-body {
+  padding: var(--space-5);
+}
+
+.ts-label {
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.ts-label.problem { color: var(--nexon-accent); }
+.ts-label.analysis { color: var(--nexon-warning); }
+.ts-label.solution { color: var(--nexon-text-cyan); }
+.ts-label.result   { color: var(--nexon-success); }
+
+.ts-text {
+  font-size: var(--text-sm);
+  color: var(--nexon-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.ts-result-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(0, 230, 118, 0.05);
+  border: 1px solid rgba(0, 230, 118, 0.15);
+  border-radius: var(--radius-md);
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  color: var(--nexon-success);
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�킬 �?/ ?�이???�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.skill-name {
+  width: 140px;
+  font-size: var(--text-sm);
+  color: var(--nexon-text-primary);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.skill-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--nexon-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--daou-blue), var(--daou-cyan));
+  border-radius: 3px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 0 10px rgba(36, 132, 198, 0.4);
+}
+
+.skill-bar-fill.animate { transform: scaleX(1); }
+
+.skill-level {
+  width: 36px;
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  color: var(--nexon-text-cyan);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.skill-desc {
+  font-size: 0.78rem;
+  color: var(--nexon-text-muted);
+  font-family: var(--font-code);
+  margin-left: 140px;
+  margin-bottom: var(--space-4);
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+@media (max-width: 640px) {
+  .skill-desc {
+    margin-left: 0;
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�재??카드
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.value-card {
+  background: var(--nexon-bg-card);
+  border: 1px solid var(--nexon-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+/* daouFit value-card ?�래??(system/realtime/ai/mobile/algorithm) */
+.value-card.system::before    { background: linear-gradient(90deg, var(--daou-blue), transparent); }
+.value-card.realtime::before  { background: linear-gradient(90deg, var(--daou-cyan), transparent); }
+.value-card.ai::before        { background: linear-gradient(90deg, var(--daou-purple), transparent); }
+.value-card.mobile::before    { background: linear-gradient(90deg, var(--finance-gold), transparent); }
+.value-card.algorithm::before { background: linear-gradient(90deg, var(--finance-green), transparent); }
+
+/* ?�거???�환 */
+.value-card.originality::before { background: linear-gradient(90deg, var(--daou-blue), transparent); }
+.value-card.challenge::before   { background: linear-gradient(90deg, var(--daou-cyan), transparent); }
+.value-card.passion::before     { background: linear-gradient(90deg, var(--finance-gold), transparent); }
+.value-card.human::before       { background: linear-gradient(90deg, var(--finance-green), transparent); }
+
+.value-card:hover { transform: translateY(-4px); border-color: var(--nexon-border-light); }
+.value-card:hover::before { opacity: 1; }
+
+.value-keyword {
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.value-card.originality .value-keyword { color: var(--nexon-text-cyan); }
+.value-card.challenge .value-keyword   { color: var(--nexon-accent); }
+.value-card.passion .value-keyword     { color: var(--nexon-warning); }
+.value-card.human .value-keyword       { color: var(--nexon-success); }
+
+.value-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--nexon-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.value-desc {
+  font-size: var(--text-sm);
+  color: var(--nexon-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.value-evidences {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.value-evidences li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--nexon-text-secondary);
+}
+
+.value-evidences li::before {
+  content: '??;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.value-card.originality .value-evidences li::before { color: var(--nexon-text-cyan); }
+.value-card.challenge .value-evidences li::before   { color: var(--nexon-accent); }
+.value-card.passion .value-evidences li::before     { color: var(--nexon-warning); }
+.value-card.human .value-evidences li::before       { color: var(--nexon-success); }
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�?�라???�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.timeline {
+  position: relative;
+  padding-left: var(--space-8);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--daou-blue), var(--daou-cyan), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-8) + -4px);
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--daou-blue);
+  box-shadow: 0 0 10px var(--daou-blue);
+}
+
+.timeline-date {
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  color: var(--nexon-text-muted);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.05em;
+}
+
+.timeline-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--nexon-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-desc {
+  font-size: var(--text-sm);
+  color: var(--nexon-text-secondary);
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�터 ???�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-bottom: var(--space-10);
+}
+
+.filter-tab {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--daou-text-secondary);
+  background: transparent;
+  border: 1px solid var(--daou-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+  color: var(--daou-text-primary);
+  border-color: var(--daou-border-light);
+  background: rgba(36, 132, 198, 0.08);
+}
+
+.filter-tab.active {
+  border-color: rgba(36, 132, 198, 0.5);
+  background: rgba(36, 132, 198, 0.12);
+  box-shadow: 0 0 16px rgba(36, 132, 198, 0.15);
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?��?지 비교 ?�라?�더 (Before / After)
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+.img-compare {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  aspect-ratio: 16/9;
+  background: var(--nexon-bg-surface);
+}
+
+.img-compare-after,
+.img-compare-before {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.img-compare-after img,
+.img-compare-before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.img-compare-after {
+  clip-path: inset(0 0 0 50%);
+}
+
+.img-compare-slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: white;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.img-compare-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--nexon-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(0,85,255,0.6);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.img-compare-label {
+  position: absolute;
+  bottom: var(--space-3);
+  padding: 4px 12px;
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+.img-compare-label.before-label {
+  right: calc(50% + var(--space-3));
+  background: rgba(255, 75, 38, 0.85);
+  color: white;
+}
+
+.img-compare-label.after-label {
+  left: calc(50% + var(--space-3));
+  background: rgba(0, 230, 118, 0.85);
+  color: white;
+}
+
+/* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
+   ?�켈?�톤 로더
+?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+    rgba(30, 43, 72, 0.6),
+    rgba(37, 53, 87, 0.8),
+    rgba(30, 43, 72, 0.6)
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.skeleton-line {
+  height: 14px;
+  margin-bottom: var(--space-2);
+}
+
+.skeleton-line.short { width: 60%; }
+.skeleton-line.medium { width: 80%; }

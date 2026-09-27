@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="sqlGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2484C6"/>
+      <stop offset="100%" stop-color="#003366"/>
+    </linearGradient>
+    <linearGradient id="sqlGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#2484C6"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sqlGrad1)" d="M64 92c-30.9 0-56-6.3-56-14v22c0 7.7 25.1 14 56 14s56-6.3 56-14V78c0 7.7-25.1 14-56 14z"/>
+  <path fill="url(#sqlGrad1)" d="M64 64c-30.9 0-56-6.3-56-14v22c0 7.7 25.1 14 56 14s56-6.3 56-14V50c0 7.7-25.1 14-56 14z"/>
+  <ellipse fill="url(#sqlGrad2)" cx="64" cy="28" rx="56" ry="16"/>
+  <path fill="url(#sqlGrad1)" d="M8 28v22c0 7.7 25.1 14 56 14s56-6.3 56-14V28c0-1.5-.9-3-2.6-4.4C106.6 20.3 86.8 18 64 18S21.4 20.3 8.6 23.6C7 25 8 26.5 8 28z"/>
+  <ellipse fill="#38BDF8" cx="64" cy="26" rx="52" ry="13" opacity="0.6"/>
+  <rect x="22" y="58" width="84" height="42" rx="8" fill="#0B1D3A" stroke="#38BDF8" stroke-width="3"/>
+  <text x="64" y="87" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" letter-spacing="2" text-anchor="middle">SQL</text>
+</svg>

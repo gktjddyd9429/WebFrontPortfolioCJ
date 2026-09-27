@@ -1,0 +1,225 @@
+/* ============================================
+   cj-tokens.css
+   CJ그룹 공식 브랜드 디자인 시스템 — CSS 토큰
+   레퍼런스: cj.net 공식 CI (CJ Blossom 3색)
+   ============================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ==========================================================================
+     1. CJ 블로썸 공식 브랜드 컬러 (Official CI — cj.net 기반)
+     ========================================================================== */
+
+  /* CJ Red — 건강(Health), 열정, 도전 */
+  --cj-red:             #EF151E;
+  --cj-red-hover:       #D60E16;
+  --cj-red-dark:        #B00B12;
+  --cj-red-light:       #FFEBEC;
+  --cj-red-glow:        rgba(239, 21, 30, 0.18);
+  --cj-red-dim:         rgba(239, 21, 30, 0.08);
+
+  /* CJ Yellow — 즐거움(Joy), 창의, Delight */
+  --cj-yellow:          #FF9700;
+  --cj-yellow-hover:    #E58800;
+  --cj-yellow-dark:     #C47400;
+  --cj-yellow-light:    #FFF6EB;
+  --cj-yellow-glow:     rgba(255, 151, 0, 0.22);
+  --cj-yellow-dim:      rgba(255, 151, 0, 0.08);
+
+  /* CJ Blue — 편리(Convenience), 신뢰, 스마트 솔루션 */
+  --cj-blue:            #006ECD;
+  --cj-blue-hover:      #0059A8;
+  --cj-blue-dark:       #004A8C;
+  --cj-blue-light:      #EDF5FC;
+  --cj-blue-glow:       rgba(0, 110, 205, 0.18);
+  --cj-blue-dim:        rgba(0, 110, 205, 0.08);
+
+  /* ==========================================================================
+     2. 화이트 계열 배경 시스템 (Clean White Canvas)
+     ========================================================================== */
+  --cj-bg-main:         #FFFFFF;   /* 메인 퓨어 화이트 배경 */
+  --cj-bg-section:      #F8F9FA;   /* 섹션 교차 배경 (연한 쿨그레이) */
+  --cj-bg-subtle:       #F1F3F5;   /* 서브 배경 / 칩 배경 */
+  --cj-bg-card:         #FFFFFF;   /* 카드 기본 배경 */
+  --cj-bg-modal:        #FFFFFF;   /* 모달 배경 */
+  --cj-bg-input:        #FAFAFA;   /* 인풋 배경 */
+
+  /* ==========================================================================
+     3. 텍스트 시스템 (Dark Neutrals — 화이트 바탕 최적화)
+     ========================================================================== */
+  --cj-text-primary:    #1A1A1A;   /* 가장 선명한 메인 텍스트 */
+  --cj-text-secondary:  #4E5968;   /* 본문 슬레이트 차콜 */
+  --cj-text-muted:      #8B95A1;   /* 보조 메타/설명 */
+  --cj-text-dim:        #B0B8C1;   /* 비활성화 / 미세 가이드 */
+  --cj-text-red:        #D60E16;   /* 강조 레드 텍스트 */
+  --cj-text-blue:       #006ECD;   /* 링크 / 기술 태그 */
+  --cj-text-yellow:     #B86F00;   /* 화이트 바탕에 잘 보이는 진한 옐로우 */
+
+  /* ==========================================================================
+     4. 보더 & 디바이더 시스템
+     ========================================================================== */
+  --cj-border-light:    #F2F4F6;   /* 미세 내부 구분선 */
+  --cj-border:          #E5E8EB;   /* 카드 및 컨테이너 기본 보더 */
+  --cj-border-medium:   #D1D6DB;   /* 강조 보더 / 인터랙티브 기본선 */
+  --cj-border-focus:    var(--cj-blue); /* 포커스 및 활성 상태 보더 */
+  --cj-border-red:      rgba(239, 21, 30, 0.25);
+
+  /* ==========================================================================
+     5. CJ 블로썸 시그니처 그라디언트 시스템
+     ========================================================================== */
+  /* 3색 블로썸 시그니처 라인 (Red → Yellow → Blue) */
+  --grad-cj-blossom:    linear-gradient(90deg, #EF151E 0%, #FF9700 50%, #006ECD 100%);
+  --grad-cj-blossom-135: linear-gradient(135deg, #EF151E 0%, #FF9700 52%, #006ECD 100%);
+  /* 단색 듀얼 그라디언트 */
+  --grad-cj-warm:       linear-gradient(135deg, #EF151E 0%, #FF9700 100%);
+  --grad-cj-cool:       linear-gradient(135deg, #006ECD 0%, #20A4F3 100%);
+  --grad-cj-joy:        linear-gradient(135deg, #FF9700 0%, #FFD14D 100%);
+  /* 배경용 소프트 그라디언트 */
+  --grad-cj-soft-bg:    linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+  --grad-cj-hero:       linear-gradient(135deg, rgba(239,21,30,0.04) 0%, rgba(255,151,0,0.04) 50%, rgba(0,110,205,0.04) 100%);
+
+  /* ==========================================================================
+     6. 그림자 & 엘리베이션 시스템
+     ========================================================================== */
+  --cj-shadow-xs:       0 1px 4px rgba(0, 0, 0, 0.04);
+  --cj-shadow-sm:       0 2px 8px rgba(0, 0, 0, 0.05);
+  --cj-shadow-md:       0 4px 16px rgba(0, 0, 0, 0.07);
+  --cj-shadow-lg:       0 12px 32px rgba(0, 0, 0, 0.09);
+  --cj-shadow-xl:       0 24px 48px rgba(0, 0, 0, 0.12);
+  --cj-shadow-hover:    0 16px 40px rgba(0, 110, 205, 0.12);
+  --cj-shadow-red:      0 8px 24px rgba(239, 21, 30, 0.20);
+  --cj-shadow-blue:     0 8px 24px rgba(0, 110, 205, 0.20);
+  --cj-shadow-yellow:   0 8px 24px rgba(255, 151, 0, 0.22);
+  --shadow-card:        var(--cj-shadow-md);
+  --shadow-modal:       0 25px 50px -12px rgba(0, 0, 0, 0.18);
+
+  /* 글로우 (subtle — 화이트 배경 최적화) */
+  --glow-red:    0 0 20px rgba(239, 21, 30, 0.14), 0 0 50px rgba(239, 21, 30, 0.05);
+  --glow-yellow: 0 0 20px rgba(255, 151, 0, 0.18), 0 0 50px rgba(255, 151, 0, 0.06);
+  --glow-blue:   0 0 20px rgba(0, 110, 205, 0.14), 0 0 50px rgba(0, 110, 205, 0.05);
+
+  /* ==========================================================================
+     7. 타이포그래피
+     ========================================================================== */
+  --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Noto Sans KR', sans-serif;
+  --font-code: 'JetBrains Mono', 'D2Coding', Consolas, monospace;
+
+  /* ==========================================================================
+     8. 텍스트 사이즈
+     ========================================================================== */
+  --text-xs:   0.70rem;
+  --text-sm:   0.825rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  /* ==========================================================================
+     9. 스페이싱
+     ========================================================================== */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ==========================================================================
+     10. 라운딩 (Blossom 꽃잎 곡선감)
+     ========================================================================== */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     11. 트랜지션
+     ========================================================================== */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ==========================================================================
+     12. Z-Index
+     ========================================================================== */
+  --z-nav:     100;
+  --z-overlay: 150;
+  --z-modal:   200;
+
+  /* ==========================================================================
+     13. cjFit 태그 컬러 (프로젝트 카드용)
+     ========================================================================== */
+  --fit-convenience-color:  var(--cj-blue);
+  --fit-convenience-bg:     var(--cj-blue-light);
+  --fit-joy-color:          var(--cj-yellow-dark);
+  --fit-joy-bg:             var(--cj-yellow-light);
+  --fit-health-color:       var(--cj-red);
+  --fit-health-bg:          var(--cj-red-light);
+  --fit-onlyone-color:      #7928CA;
+  --fit-onlyone-bg:         #F7EDFF;
+
+  /* ==========================================================================
+     14. 하위 호환 별칭 (nexon-* → cj-* 매핑)
+     ========================================================================== */
+  --nexon-bg-main:        var(--cj-bg-main);
+  --nexon-bg-surface:     var(--cj-bg-section);
+  --nexon-bg-card:        var(--cj-bg-card);
+  --nexon-bg-card-hover:  var(--cj-bg-card);
+  --nexon-bg-modal:       var(--cj-bg-modal);
+  --nexon-blue:           var(--cj-blue);
+  --nexon-blue-dark:      var(--cj-blue-dark);
+  --nexon-blue-glow:      var(--cj-blue-glow);
+  --nexon-cyan:           var(--cj-blue);
+  --nexon-cyan-glow:      var(--cj-blue-glow);
+  --nexon-cyan-dim:       var(--cj-blue-dim);
+  --nexon-lime:           var(--cj-yellow);
+  --nexon-lime-glow:      var(--cj-yellow-glow);
+  --nexon-lime-dim:       var(--cj-yellow-dim);
+  --nexon-text-primary:   var(--cj-text-primary);
+  --nexon-text-secondary: var(--cj-text-secondary);
+  --nexon-text-muted:     var(--cj-text-muted);
+  --nexon-text-dim:       var(--cj-text-dim);
+  --nexon-text-cyan:      var(--cj-text-blue);
+  --nexon-text-lime:      var(--cj-text-yellow);
+  --nexon-border:         var(--cj-border);
+  --nexon-border-light:   var(--cj-border-medium);
+  --nexon-border-glow:    var(--cj-blue-glow);
+  --nexon-border-lime:    var(--cj-yellow-glow);
+  --grad-nexon-primary:   var(--grad-cj-blossom);
+  --grad-blue-lime:       var(--grad-cj-blossom);
+  --grad-blue-dark:       var(--grad-cj-cool);
+  --glow-lime:            var(--glow-yellow);
+  --glow-cyan:            var(--glow-blue);
+  --nexon-success:        #00A86B;
+  --nexon-success-glow:   rgba(0, 168, 107, 0.3);
+  --nexon-warning:        var(--cj-yellow);
+  --nexon-accent:         var(--cj-red);
+  --nexon-accent-glow:    var(--cj-red-glow);
+  --nexon-navy:           var(--cj-bg-main);
+  --daou-text-cyan:       var(--cj-text-blue);
+  --daou-bg-dark:         var(--cj-bg-main);
+  --daou-bg-surface:      var(--cj-bg-section);
+  --daou-bg-card:         var(--cj-bg-card);
+  --daou-blue:            var(--cj-blue);
+  --daou-border:          var(--cj-border);
+  --angled-clip-md:       none;
+  --angled-clip-btn:      none;
+  --angled-clip-sm:       none;
+}
