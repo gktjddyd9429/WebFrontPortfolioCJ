@@ -33,6 +33,7 @@
   border: 2px solid var(--daou-blue);
   box-shadow: 0 0 20px rgba(36, 132, 198, 0.25);
 }
+
 .btn-primary:hover {
   background: var(--daou-blue-dark);
   border-color: var(--daou-blue-dark);
@@ -40,7 +41,10 @@
   transform: translateY(-2px);
   color: #ffffff;
 }
-.btn-primary:active { transform: translateY(0); }
+
+.btn-primary:active {
+  transform: translateY(0);
+}
 
 .btn-secondary {
   background: rgba(36, 132, 198, 0.08);
@@ -50,6 +54,7 @@
   border: 1.5px solid var(--daou-blue);
   font-weight: 700;
 }
+
 .btn-secondary:hover {
   background: var(--daou-blue);
   border-color: var(--daou-blue);
@@ -65,6 +70,7 @@
   clip-path: none;
   border-radius: var(--radius-sm);
 }
+
 .btn-ghost:hover {
   background: rgba(36, 132, 198, 0.08);
   color: var(--daou-text-primary);
@@ -113,7 +119,8 @@
   border: 1px solid rgba(36, 132, 198, 0.35);
 }
 
-.badge-green, .badge-lime {
+.badge-green,
+.badge-lime {
   background: rgba(180, 225, 20, 0.12);
   color: var(--nexon-text-lime);
   border: 1px solid rgba(180, 225, 20, 0.3);
@@ -138,17 +145,60 @@
 }
 
 /* daouFit 가치배지 */
-.badge-system    { background: rgba(36, 132, 198, 0.12);  color: var(--daou-blue);       border: 1px solid rgba(36, 132, 198, 0.3); }
-.badge-realtime  { background: rgba(12, 98, 150, 0.10);   color: var(--daou-text-cyan);  border: 1px solid rgba(12, 98, 150, 0.3); }
-.badge-ai        { background: rgba(95, 36, 228, 0.10);   color: var(--daou-purple);     border: 1px solid rgba(95, 36, 228, 0.3); }
-.badge-mobile    { background: rgba(217, 119, 6, 0.10);   color: var(--daou-text-gold);  border: 1px solid rgba(217, 119, 6, 0.3); }
-.badge-algorithm { background: rgba(4, 120, 87, 0.10);    color: #047857;                border: 1px solid rgba(4, 120, 87, 0.3); }
+.badge-system {
+  background: rgba(36, 132, 198, 0.12);
+  color: var(--daou-blue);
+  border: 1px solid rgba(36, 132, 198, 0.3);
+}
+
+.badge-realtime {
+  background: rgba(12, 98, 150, 0.10);
+  color: var(--daou-text-cyan);
+  border: 1px solid rgba(12, 98, 150, 0.3);
+}
+
+.badge-ai {
+  background: rgba(95, 36, 228, 0.10);
+  color: var(--daou-purple);
+  border: 1px solid rgba(95, 36, 228, 0.3);
+}
+
+.badge-mobile {
+  background: rgba(217, 119, 6, 0.10);
+  color: var(--daou-text-gold);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.badge-algorithm {
+  background: rgba(4, 120, 87, 0.10);
+  color: #047857;
+  border: 1px solid rgba(4, 120, 87, 0.3);
+}
 
 /* 레거시 호환 */
-.badge-originality { background: rgba(36, 132, 198, 0.10);  color: var(--daou-blue);      border: 1px solid rgba(36, 132, 198, 0.3); }
-.badge-challenge   { background: rgba(12, 98, 150, 0.10);  color: var(--daou-text-cyan); border: 1px solid rgba(12, 98, 150, 0.3); }
-.badge-passion     { background: rgba(217, 119, 6, 0.10);  color: var(--daou-text-gold); border: 1px solid rgba(217, 119, 6, 0.3); }
-.badge-human       { background: rgba(4, 120, 87, 0.10);   color: #047857;               border: 1px solid rgba(4, 120, 87, 0.3); }
+.badge-originality {
+  background: rgba(36, 132, 198, 0.10);
+  color: var(--daou-blue);
+  border: 1px solid rgba(36, 132, 198, 0.3);
+}
+
+.badge-challenge {
+  background: rgba(12, 98, 150, 0.10);
+  color: var(--daou-text-cyan);
+  border: 1px solid rgba(12, 98, 150, 0.3);
+}
+
+.badge-passion {
+  background: rgba(217, 119, 6, 0.10);
+  color: var(--daou-text-gold);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.badge-human {
+  background: rgba(4, 120, 87, 0.10);
+  color: #047857;
+  border: 1px solid rgba(4, 120, 87, 0.3);
+}
 
 /* ============================================
    프로젝트 카드
@@ -168,7 +218,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,85,255,0.04) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(0, 85, 255, 0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition-base);
   z-index: 0;
@@ -179,10 +229,12 @@
   background: var(--nexon-bg-card-hover);
   border-color: rgba(0, 210, 255, 0.35);
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,210,255,0.2), var(--glow-cyan);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 210, 255, 0.2), var(--glow-cyan);
 }
 
-.project-card:hover::before { opacity: 1; }
+.project-card:hover::before {
+  opacity: 1;
+}
 
 .project-card.featured {
   clip-path: var(--angled-clip-lg);
@@ -211,11 +263,9 @@
 .card-thumbnail-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 40%,
-    rgba(7, 10, 19, 0.85) 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 40%,
+      rgba(7, 10, 19, 0.85) 100%);
 }
 
 .card-thumbnail-placeholder {
@@ -258,10 +308,12 @@
   font-size: 1.2rem;
   transition: transform var(--transition-spring);
   box-shadow: var(--glow-blue);
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.project-card:hover .card-play-btn { transform: translate(-50%, -50%) scale(1); }
+.project-card:hover .card-play-btn {
+  transform: translate(-50%, -50%) scale(1);
+}
 
 .card-body {
   padding: var(--space-5);
@@ -379,7 +431,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid var(--nexon-border);
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) var(--space-3);
@@ -441,10 +493,21 @@
   margin-bottom: var(--space-2);
 }
 
-.ts-label.problem { color: var(--nexon-accent); }
-.ts-label.analysis { color: var(--nexon-warning); }
-.ts-label.solution { color: var(--nexon-text-cyan); }
-.ts-label.result   { color: var(--nexon-success); }
+.ts-label.problem {
+  color: var(--nexon-accent);
+}
+
+.ts-label.analysis {
+  color: var(--nexon-warning);
+}
+
+.ts-label.solution {
+  color: var(--nexon-text-cyan);
+}
+
+.ts-label.result {
+  color: var(--nexon-success);
+}
 
 .ts-text {
   font-size: var(--text-sm);
@@ -501,7 +564,9 @@
   box-shadow: 0 0 10px rgba(36, 132, 198, 0.4);
 }
 
-.skill-bar-fill.animate { transform: scaleX(1); }
+.skill-bar-fill.animate {
+  transform: scaleX(1);
+}
 
 .skill-level {
   width: 36px;
@@ -554,20 +619,51 @@
 }
 
 /* daouFit value-card ?�래??(system/realtime/ai/mobile/algorithm) */
-.value-card.system::before    { background: linear-gradient(90deg, var(--daou-blue), transparent); }
-.value-card.realtime::before  { background: linear-gradient(90deg, var(--daou-cyan), transparent); }
-.value-card.ai::before        { background: linear-gradient(90deg, var(--daou-purple), transparent); }
-.value-card.mobile::before    { background: linear-gradient(90deg, var(--finance-gold), transparent); }
-.value-card.algorithm::before { background: linear-gradient(90deg, var(--finance-green), transparent); }
+.value-card.system::before {
+  background: linear-gradient(90deg, var(--daou-blue), transparent);
+}
+
+.value-card.realtime::before {
+  background: linear-gradient(90deg, var(--daou-cyan), transparent);
+}
+
+.value-card.ai::before {
+  background: linear-gradient(90deg, var(--daou-purple), transparent);
+}
+
+.value-card.mobile::before {
+  background: linear-gradient(90deg, var(--finance-gold), transparent);
+}
+
+.value-card.algorithm::before {
+  background: linear-gradient(90deg, var(--finance-green), transparent);
+}
 
 /* ?�거???�환 */
-.value-card.originality::before { background: linear-gradient(90deg, var(--daou-blue), transparent); }
-.value-card.challenge::before   { background: linear-gradient(90deg, var(--daou-cyan), transparent); }
-.value-card.passion::before     { background: linear-gradient(90deg, var(--finance-gold), transparent); }
-.value-card.human::before       { background: linear-gradient(90deg, var(--finance-green), transparent); }
+.value-card.originality::before {
+  background: linear-gradient(90deg, var(--daou-blue), transparent);
+}
 
-.value-card:hover { transform: translateY(-4px); border-color: var(--nexon-border-light); }
-.value-card:hover::before { opacity: 1; }
+.value-card.challenge::before {
+  background: linear-gradient(90deg, var(--daou-cyan), transparent);
+}
+
+.value-card.passion::before {
+  background: linear-gradient(90deg, var(--finance-gold), transparent);
+}
+
+.value-card.human::before {
+  background: linear-gradient(90deg, var(--finance-green), transparent);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--nexon-border-light);
+}
+
+.value-card:hover::before {
+  opacity: 1;
+}
 
 .value-keyword {
   font-family: var(--font-code);
@@ -577,10 +673,21 @@
   margin-bottom: var(--space-2);
 }
 
-.value-card.originality .value-keyword { color: var(--nexon-text-cyan); }
-.value-card.challenge .value-keyword   { color: var(--nexon-accent); }
-.value-card.passion .value-keyword     { color: var(--nexon-warning); }
-.value-card.human .value-keyword       { color: var(--nexon-success); }
+.value-card.originality .value-keyword {
+  color: var(--nexon-text-cyan);
+}
+
+.value-card.challenge .value-keyword {
+  color: var(--nexon-accent);
+}
+
+.value-card.passion .value-keyword {
+  color: var(--nexon-warning);
+}
+
+.value-card.human .value-keyword {
+  color: var(--nexon-success);
+}
 
 .value-title {
   font-size: var(--text-2xl);
@@ -612,15 +719,26 @@
 }
 
 .value-evidences li::before {
-  content: '??;
+  content: '▸';
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.value-card.originality .value-evidences li::before { color: var(--nexon-text-cyan); }
-.value-card.challenge .value-evidences li::before   { color: var(--nexon-accent); }
-.value-card.passion .value-evidences li::before     { color: var(--nexon-warning); }
-.value-card.human .value-evidences li::before       { color: var(--nexon-success); }
+.value-card.originality .value-evidences li::before {
+  color: var(--nexon-text-cyan);
+}
+
+.value-card.challenge .value-evidences li::before {
+  color: var(--nexon-accent);
+}
+
+.value-card.passion .value-evidences li::before {
+  color: var(--nexon-warning);
+}
+
+.value-card.human .value-evidences li::before {
+  color: var(--nexon-success);
+}
 
 /* ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
    ?�?�라???�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
@@ -752,7 +870,7 @@
   background: white;
   z-index: 10;
   pointer-events: none;
-  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .img-compare-handle {
@@ -769,8 +887,8 @@
   justify-content: center;
   color: white;
   font-size: 0.9rem;
-  box-shadow: 0 0 20px rgba(0,85,255,0.6);
-  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px rgba(0, 85, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .img-compare-label {
@@ -799,24 +917,35 @@
    ?�켈?�톤 로더
 ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?� */
 @keyframes skeleton-pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .skeleton {
   background: linear-gradient(90deg,
-    rgba(30, 43, 72, 0.6),
-    rgba(37, 53, 87, 0.8),
-    rgba(30, 43, 72, 0.6)
-  );
+      rgba(30, 43, 72, 0.6),
+      rgba(37, 53, 87, 0.8),
+      rgba(30, 43, 72, 0.6));
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.5s infinite;
   border-radius: var(--radius-sm);
 }
 
 @keyframes skeleton-shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .skeleton-thumb {
@@ -829,5 +958,10 @@
   margin-bottom: var(--space-2);
 }
 
-.skeleton-line.short { width: 60%; }
-.skeleton-line.medium { width: 80%; }
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
